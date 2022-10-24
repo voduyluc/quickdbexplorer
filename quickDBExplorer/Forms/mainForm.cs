@@ -316,7 +316,9 @@ namespace quickDBExplorer.Forms
         private SplitContainer conditionSplitter;
         private SplitContainer conditionSplitter2;
         private Button btnResetWidth;
-        private bool IsFilterCaseSensitive = false;
+		private TextBox txtFilterDB;
+		private TextBox txtFilterSchema;
+		private bool IsFilterCaseSensitive = false;
 
 		/// <summary>
 		/// コンストラクタ
@@ -418,416 +420,423 @@ namespace quickDBExplorer.Forms
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.dbList = new quickDBExplorer.qdbeListBox();
-            this.objectList = new quickDBExplorer.ObjectListView();
-            this.ColTVSType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ColOwner = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ColObjName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ColCreateDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.menuISQLW = new System.Windows.Forms.MenuItem();
-            this.btnInsert = new System.Windows.Forms.Button();
-            this.btnFieldList = new System.Windows.Forms.Button();
-            this.btnCSV = new System.Windows.Forms.Button();
-            this.rdoDispView = new System.Windows.Forms.RadioButton();
-            this.grpViewMode = new System.Windows.Forms.GroupBox();
-            this.rdoNotDispView = new System.Windows.Forms.RadioButton();
-            this.grpSortMode = new System.Windows.Forms.GroupBox();
-            this.rdoSortOwnerTable = new System.Windows.Forms.RadioButton();
-            this.rdoSortTable = new System.Windows.Forms.RadioButton();
-            this.txtWhere = new quickDBExplorer.quickDBExplorerTextBox();
-            this.txtSort = new quickDBExplorer.quickDBExplorerTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnSelect = new System.Windows.Forms.Button();
-            this.ownerListbox = new quickDBExplorer.qdbeListBox();
-            this.btnDDL = new System.Windows.Forms.Button();
-            this.dbGrid = new System.Windows.Forms.DataGrid();
-            this.dbGridMenu = new System.Windows.Forms.ContextMenu();
-            this.copyDbGridMenu = new System.Windows.Forms.MenuItem();
-            this.copySelectedDbGridMenu = new System.Windows.Forms.MenuItem();
-            this.allSelectDbGridMenu = new System.Windows.Forms.MenuItem();
-            this.allUnSelectDbGridMenu = new System.Windows.Forms.MenuItem();
-            this.readCsvDbGridMenu = new System.Windows.Forms.MenuItem();
-            this.readCsvDQDbGridMenu = new System.Windows.Forms.MenuItem();
-            this.readTsvDbGridMenu = new System.Windows.Forms.MenuItem();
-            this.readTsvDQDbGridMenu = new System.Windows.Forms.MenuItem();
-            this.chkDispData = new System.Windows.Forms.CheckBox();
-            this.grpDataDispMode = new System.Windows.Forms.GroupBox();
-            this.txtDispCount = new quickDBExplorer.quickDBExplorerTextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.grpSysUserMode = new System.Windows.Forms.GroupBox();
-            this.rdoNotDispSysUser = new System.Windows.Forms.RadioButton();
-            this.rdoDispSysUser = new System.Windows.Forms.RadioButton();
-            this.grpOutputMode = new System.Windows.Forms.GroupBox();
-            this.btnReference = new System.Windows.Forms.Button();
-            this.txtOutput = new quickDBExplorer.quickDBExplorerTextBox();
-            this.rdoOutFile = new System.Windows.Forms.RadioButton();
-            this.rdoClipboard = new System.Windows.Forms.RadioButton();
-            this.rdoOutFolder = new System.Windows.Forms.RadioButton();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.labelDB = new System.Windows.Forms.Label();
-            this.labelSchema = new System.Windows.Forms.Label();
-            this.fieldListbox = new quickDBExplorer.qdbeListBox();
-            this.fldContextMenu = new System.Windows.Forms.ContextMenu();
-            this.fldmenuCopy = new System.Windows.Forms.MenuItem();
-            this.fldmenuCopyNoCRLF = new System.Windows.Forms.MenuItem();
-            this.fldmenuCopyNoComma = new System.Windows.Forms.MenuItem();
-            this.fldmenuCopyNoCRLFNoComma = new System.Windows.Forms.MenuItem();
-            this.menuFieldAliasCopy = new System.Windows.Forms.MenuItem();
-            this.menuFieldMakeWhere = new System.Windows.Forms.MenuItem();
-            this.fldmenuMakePoco = new System.Windows.Forms.MenuItem();
-            this.fldmenuMakePocoNoClass = new System.Windows.Forms.MenuItem();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.grpCharaSet = new System.Windows.Forms.GroupBox();
-            this.rdoUtf8 = new System.Windows.Forms.RadioButton();
-            this.rdoSjis = new System.Windows.Forms.RadioButton();
-            this.rdoUnicode = new System.Windows.Forms.RadioButton();
-            this.chkDispFieldAttr = new System.Windows.Forms.CheckBox();
-            this.btnQuerySelect = new System.Windows.Forms.Button();
-            this.btnDataUpdate = new System.Windows.Forms.Button();
-            this.btnDataEdit = new System.Windows.Forms.Button();
-            this.btnGridFormat = new System.Windows.Forms.Button();
-            this.btnIndex = new System.Windows.Forms.Button();
-            this.btnRedisp = new System.Windows.Forms.Button();
-            this.btnTmpAllDisp = new System.Windows.Forms.Button();
-            this.btnEtc = new System.Windows.Forms.Button();
-            this.btnWhereZoom = new System.Windows.Forms.Button();
-            this.btnOrderZoom = new System.Windows.Forms.Button();
-            this.labelObject = new System.Windows.Forms.Label();
-            this.cmbHistory = new System.Windows.Forms.ComboBox();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtAlias = new quickDBExplorer.quickDBExplorerTextBox();
-            this.ObjFieldSplitter = new System.Windows.Forms.SplitContainer();
-            this.labelFilter = new System.Windows.Forms.Label();
-            this.txtObjFilter = new quickDBExplorer.quickDBExplorerTextBox();
-            this.MainSplitter = new System.Windows.Forms.SplitContainer();
-            this.conditionSplitter = new System.Windows.Forms.SplitContainer();
-            this.conditionSplitter2 = new System.Windows.Forms.SplitContainer();
-            this.UpDownSplitter = new System.Windows.Forms.SplitContainer();
-            this.btnResetWidth = new System.Windows.Forms.Button();
-            this.dbMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.menuTimeoutChange = new System.Windows.Forms.ToolStripMenuItem();
-            this.DBReloadMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.commTooltip = new System.Windows.Forms.ToolTip(this.components);
-            this.filterMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.filterClear = new System.Windows.Forms.ToolStripMenuItem();
-            this.filterCS = new System.Windows.Forms.ToolStripMenuItem();
-            this.filterNonCS = new System.Windows.Forms.ToolStripMenuItem();
-            this.grpViewMode.SuspendLayout();
-            this.grpSortMode.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dbGrid)).BeginInit();
-            this.grpDataDispMode.SuspendLayout();
-            this.grpSysUserMode.SuspendLayout();
-            this.grpOutputMode.SuspendLayout();
-            this.grpCharaSet.SuspendLayout();
-            this.ObjFieldSplitter.Panel1.SuspendLayout();
-            this.ObjFieldSplitter.Panel2.SuspendLayout();
-            this.ObjFieldSplitter.SuspendLayout();
-            this.MainSplitter.Panel1.SuspendLayout();
-            this.MainSplitter.Panel2.SuspendLayout();
-            this.MainSplitter.SuspendLayout();
-            this.conditionSplitter.Panel1.SuspendLayout();
-            this.conditionSplitter.Panel2.SuspendLayout();
-            this.conditionSplitter.SuspendLayout();
-            this.conditionSplitter2.Panel1.SuspendLayout();
-            this.conditionSplitter2.Panel2.SuspendLayout();
-            this.conditionSplitter2.SuspendLayout();
-            this.UpDownSplitter.Panel1.SuspendLayout();
-            this.UpDownSplitter.Panel2.SuspendLayout();
-            this.UpDownSplitter.SuspendLayout();
-            this.dbMenu.SuspendLayout();
-            this.filterMenu.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // MsgArea
-            // 
-            this.MsgArea.Location = new System.Drawing.Point(304, 660);
-            this.MsgArea.Size = new System.Drawing.Size(709, 16);
-            this.MsgArea.TabIndex = 42;
-            // 
-            // dbList
-            // 
-            this.dbList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+			this.dbList = new quickDBExplorer.qdbeListBox();
+			this.objectList = new quickDBExplorer.ObjectListView();
+			this.ColTVSType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.ColOwner = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.ColObjName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.ColCreateDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.menuISQLW = new System.Windows.Forms.MenuItem();
+			this.btnInsert = new System.Windows.Forms.Button();
+			this.btnFieldList = new System.Windows.Forms.Button();
+			this.btnCSV = new System.Windows.Forms.Button();
+			this.rdoDispView = new System.Windows.Forms.RadioButton();
+			this.grpViewMode = new System.Windows.Forms.GroupBox();
+			this.rdoNotDispView = new System.Windows.Forms.RadioButton();
+			this.grpSortMode = new System.Windows.Forms.GroupBox();
+			this.rdoSortOwnerTable = new System.Windows.Forms.RadioButton();
+			this.rdoSortTable = new System.Windows.Forms.RadioButton();
+			this.txtWhere = new quickDBExplorer.quickDBExplorerTextBox();
+			this.txtSort = new quickDBExplorer.quickDBExplorerTextBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.btnSelect = new System.Windows.Forms.Button();
+			this.ownerListbox = new quickDBExplorer.qdbeListBox();
+			this.btnDDL = new System.Windows.Forms.Button();
+			this.dbGrid = new System.Windows.Forms.DataGrid();
+			this.dbGridMenu = new System.Windows.Forms.ContextMenu();
+			this.copyDbGridMenu = new System.Windows.Forms.MenuItem();
+			this.copySelectedDbGridMenu = new System.Windows.Forms.MenuItem();
+			this.allSelectDbGridMenu = new System.Windows.Forms.MenuItem();
+			this.allUnSelectDbGridMenu = new System.Windows.Forms.MenuItem();
+			this.readCsvDbGridMenu = new System.Windows.Forms.MenuItem();
+			this.readCsvDQDbGridMenu = new System.Windows.Forms.MenuItem();
+			this.readTsvDbGridMenu = new System.Windows.Forms.MenuItem();
+			this.readTsvDQDbGridMenu = new System.Windows.Forms.MenuItem();
+			this.chkDispData = new System.Windows.Forms.CheckBox();
+			this.grpDataDispMode = new System.Windows.Forms.GroupBox();
+			this.txtDispCount = new quickDBExplorer.quickDBExplorerTextBox();
+			this.label3 = new System.Windows.Forms.Label();
+			this.grpSysUserMode = new System.Windows.Forms.GroupBox();
+			this.rdoNotDispSysUser = new System.Windows.Forms.RadioButton();
+			this.rdoDispSysUser = new System.Windows.Forms.RadioButton();
+			this.grpOutputMode = new System.Windows.Forms.GroupBox();
+			this.btnReference = new System.Windows.Forms.Button();
+			this.txtOutput = new quickDBExplorer.quickDBExplorerTextBox();
+			this.rdoOutFile = new System.Windows.Forms.RadioButton();
+			this.rdoClipboard = new System.Windows.Forms.RadioButton();
+			this.rdoOutFolder = new System.Windows.Forms.RadioButton();
+			this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+			this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+			this.labelDB = new System.Windows.Forms.Label();
+			this.labelSchema = new System.Windows.Forms.Label();
+			this.fieldListbox = new quickDBExplorer.qdbeListBox();
+			this.fldContextMenu = new System.Windows.Forms.ContextMenu();
+			this.fldmenuCopy = new System.Windows.Forms.MenuItem();
+			this.fldmenuCopyNoCRLF = new System.Windows.Forms.MenuItem();
+			this.fldmenuCopyNoComma = new System.Windows.Forms.MenuItem();
+			this.fldmenuCopyNoCRLFNoComma = new System.Windows.Forms.MenuItem();
+			this.menuFieldAliasCopy = new System.Windows.Forms.MenuItem();
+			this.menuFieldMakeWhere = new System.Windows.Forms.MenuItem();
+			this.fldmenuMakePoco = new System.Windows.Forms.MenuItem();
+			this.fldmenuMakePocoNoClass = new System.Windows.Forms.MenuItem();
+			this.label9 = new System.Windows.Forms.Label();
+			this.label7 = new System.Windows.Forms.Label();
+			this.label8 = new System.Windows.Forms.Label();
+			this.grpCharaSet = new System.Windows.Forms.GroupBox();
+			this.rdoUtf8 = new System.Windows.Forms.RadioButton();
+			this.rdoSjis = new System.Windows.Forms.RadioButton();
+			this.rdoUnicode = new System.Windows.Forms.RadioButton();
+			this.chkDispFieldAttr = new System.Windows.Forms.CheckBox();
+			this.btnQuerySelect = new System.Windows.Forms.Button();
+			this.btnDataUpdate = new System.Windows.Forms.Button();
+			this.btnDataEdit = new System.Windows.Forms.Button();
+			this.btnGridFormat = new System.Windows.Forms.Button();
+			this.btnIndex = new System.Windows.Forms.Button();
+			this.btnRedisp = new System.Windows.Forms.Button();
+			this.btnTmpAllDisp = new System.Windows.Forms.Button();
+			this.btnEtc = new System.Windows.Forms.Button();
+			this.btnWhereZoom = new System.Windows.Forms.Button();
+			this.btnOrderZoom = new System.Windows.Forms.Button();
+			this.labelObject = new System.Windows.Forms.Label();
+			this.cmbHistory = new System.Windows.Forms.ComboBox();
+			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+			this.label11 = new System.Windows.Forms.Label();
+			this.txtAlias = new quickDBExplorer.quickDBExplorerTextBox();
+			this.ObjFieldSplitter = new System.Windows.Forms.SplitContainer();
+			this.labelFilter = new System.Windows.Forms.Label();
+			this.txtObjFilter = new quickDBExplorer.quickDBExplorerTextBox();
+			this.MainSplitter = new System.Windows.Forms.SplitContainer();
+			this.conditionSplitter = new System.Windows.Forms.SplitContainer();
+			this.txtFilterDB = new System.Windows.Forms.TextBox();
+			this.conditionSplitter2 = new System.Windows.Forms.SplitContainer();
+			this.txtFilterSchema = new System.Windows.Forms.TextBox();
+			this.UpDownSplitter = new System.Windows.Forms.SplitContainer();
+			this.btnResetWidth = new System.Windows.Forms.Button();
+			this.dbMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.menuTimeoutChange = new System.Windows.Forms.ToolStripMenuItem();
+			this.DBReloadMenu = new System.Windows.Forms.ToolStripMenuItem();
+			this.commTooltip = new System.Windows.Forms.ToolTip(this.components);
+			this.filterMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.filterClear = new System.Windows.Forms.ToolStripMenuItem();
+			this.filterCS = new System.Windows.Forms.ToolStripMenuItem();
+			this.filterNonCS = new System.Windows.Forms.ToolStripMenuItem();
+			this.grpViewMode.SuspendLayout();
+			this.grpSortMode.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dbGrid)).BeginInit();
+			this.grpDataDispMode.SuspendLayout();
+			this.grpSysUserMode.SuspendLayout();
+			this.grpOutputMode.SuspendLayout();
+			this.grpCharaSet.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.ObjFieldSplitter)).BeginInit();
+			this.ObjFieldSplitter.Panel1.SuspendLayout();
+			this.ObjFieldSplitter.Panel2.SuspendLayout();
+			this.ObjFieldSplitter.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.MainSplitter)).BeginInit();
+			this.MainSplitter.Panel1.SuspendLayout();
+			this.MainSplitter.Panel2.SuspendLayout();
+			this.MainSplitter.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.conditionSplitter)).BeginInit();
+			this.conditionSplitter.Panel1.SuspendLayout();
+			this.conditionSplitter.Panel2.SuspendLayout();
+			this.conditionSplitter.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.conditionSplitter2)).BeginInit();
+			this.conditionSplitter2.Panel1.SuspendLayout();
+			this.conditionSplitter2.Panel2.SuspendLayout();
+			this.conditionSplitter2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.UpDownSplitter)).BeginInit();
+			this.UpDownSplitter.Panel1.SuspendLayout();
+			this.UpDownSplitter.Panel2.SuspendLayout();
+			this.UpDownSplitter.SuspendLayout();
+			this.dbMenu.SuspendLayout();
+			this.filterMenu.SuspendLayout();
+			this.SuspendLayout();
+			// 
+			// MsgArea
+			// 
+			this.MsgArea.Location = new System.Drawing.Point(304, 659);
+			this.MsgArea.Size = new System.Drawing.Size(709, 17);
+			this.MsgArea.TabIndex = 42;
+			// 
+			// dbList
+			// 
+			this.dbList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dbList.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dbList.HorizontalScrollbar = true;
-            this.dbList.IntegralHeight = false;
-            this.dbList.ItemHeight = 12;
-            this.dbList.Location = new System.Drawing.Point(60, 3);
-            this.dbList.Name = "dbList";
-            this.dbList.Size = new System.Drawing.Size(184, 74);
-            this.dbList.TabIndex = 1;
-            this.dbList.CopyData += new quickDBExplorer.CopyDataEventHandler(this.dbList_CopyData);
-            this.dbList.SelectedIndexChanged += new System.EventHandler(this.dbList_SelectedIndexChanged);
-            // 
-            // objectList
-            // 
-            this.objectList.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.objectList.AllowDrop = true;
-            this.objectList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.dbList.Font = new System.Drawing.Font("MS Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.dbList.HorizontalScrollbar = true;
+			this.dbList.IntegralHeight = false;
+			this.dbList.ItemHeight = 12;
+			this.dbList.Location = new System.Drawing.Point(60, 20);
+			this.dbList.Name = "dbList";
+			this.dbList.Size = new System.Drawing.Size(184, 55);
+			this.dbList.TabIndex = 1;
+			this.dbList.CopyData += new quickDBExplorer.CopyDataEventHandler(this.dbList_CopyData);
+			this.dbList.SelectedIndexChanged += new System.EventHandler(this.dbList_SelectedIndexChanged);
+			// 
+			// objectList
+			// 
+			this.objectList.Activation = System.Windows.Forms.ItemActivation.OneClick;
+			this.objectList.AllowDrop = true;
+			this.objectList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.objectList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+			this.objectList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ColTVSType,
             this.ColOwner,
             this.ColObjName,
             this.ColCreateDate});
-            this.objectList.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.objectList.FullRowSelect = true;
-            this.objectList.GridLines = true;
-            this.objectList.HideSelection = false;
-            this.objectList.IsAutoColumSort = true;
-            this.objectList.Location = new System.Drawing.Point(3, 26);
-            this.objectList.Name = "objectList";
-            this.objectList.Size = new System.Drawing.Size(328, 297);
-            this.objectList.Sorting = System.Windows.Forms.SortOrder.Ascending;
-            this.objectList.TabIndex = 23;
-            this.objectList.UseCompatibleStateImageBehavior = false;
-            this.objectList.View = System.Windows.Forms.View.Details;
-            this.objectList.CopyData += new quickDBExplorer.qdbeListView.CopyDataEventHandler(this.objectList_CopyData);
-            this.objectList.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.objectList_ColumnClick);
-            this.objectList.SelectedIndexChanged += new System.EventHandler(this.objectList_SelectedIndexChanged);
-            this.objectList.DoubleClick += new System.EventHandler(this.InsertMake);
-            // 
-            // ColTVSType
-            // 
-            this.ColTVSType.Text = "";
-            this.ColTVSType.Width = 12;
-            // 
-            // ColOwner
-            // 
-            this.ColOwner.Text = "Owner";
-            this.ColOwner.Width = 50;
-            // 
-            // ColObjName
-            // 
-            this.ColObjName.Text = "名称";
-            this.ColObjName.Width = 226;
-            // 
-            // ColCreateDate
-            // 
-            this.ColCreateDate.Text = "作成日";
-            this.ColCreateDate.Width = 130;
-            // 
-            // menuISQLW
-            // 
-            this.menuISQLW.Index = -1;
-            this.menuISQLW.Text = "クエリアナライザ起動";
-            this.menuISQLW.Click += new System.EventHandler(this.CallISQLW);
-            // 
-            // btnInsert
-            // 
-            this.btnInsert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnInsert.Location = new System.Drawing.Point(337, 26);
-            this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(136, 24);
-            this.btnInsert.TabIndex = 24;
-            this.btnInsert.Text = "INSERT文作成(&I)";
-            // 
-            // btnFieldList
-            // 
-            this.btnFieldList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFieldList.Location = new System.Drawing.Point(337, 54);
-            this.btnFieldList.Name = "btnFieldList";
-            this.btnFieldList.Size = new System.Drawing.Size(136, 24);
-            this.btnFieldList.TabIndex = 25;
-            this.btnFieldList.Text = "フィールドリスト作成(&F)";
-            // 
-            // btnCSV
-            // 
-            this.btnCSV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCSV.Location = new System.Drawing.Point(337, 138);
-            this.btnCSV.Name = "btnCSV";
-            this.btnCSV.Size = new System.Drawing.Size(136, 24);
-            this.btnCSV.TabIndex = 28;
-            this.btnCSV.Text = "CSV等作成・読込(&K)";
-            // 
-            // rdoDispView
-            // 
-            this.rdoDispView.Location = new System.Drawing.Point(8, 16);
-            this.rdoDispView.Name = "rdoDispView";
-            this.rdoDispView.Size = new System.Drawing.Size(88, 16);
-            this.rdoDispView.TabIndex = 0;
-            this.rdoDispView.Text = "表示する";
-            this.rdoDispView.CheckedChanged += new System.EventHandler(this.rdoDispView_CheckedChanged);
-            // 
-            // grpViewMode
-            // 
-            this.grpViewMode.Controls.Add(this.rdoNotDispView);
-            this.grpViewMode.Controls.Add(this.rdoDispView);
-            this.grpViewMode.Location = new System.Drawing.Point(8, 57);
-            this.grpViewMode.Name = "grpViewMode";
-            this.grpViewMode.Size = new System.Drawing.Size(216, 40);
-            this.grpViewMode.TabIndex = 6;
-            this.grpViewMode.TabStop = false;
-            this.grpViewMode.Text = "VIEWを一覧に";
-            // 
-            // rdoNotDispView
-            // 
-            this.rdoNotDispView.Location = new System.Drawing.Point(112, 16);
-            this.rdoNotDispView.Name = "rdoNotDispView";
-            this.rdoNotDispView.Size = new System.Drawing.Size(88, 16);
-            this.rdoNotDispView.TabIndex = 1;
-            this.rdoNotDispView.Text = "表示しない";
-            // 
-            // grpSortMode
-            // 
-            this.grpSortMode.Controls.Add(this.rdoSortOwnerTable);
-            this.grpSortMode.Controls.Add(this.rdoSortTable);
-            this.grpSortMode.Location = new System.Drawing.Point(8, 101);
-            this.grpSortMode.Name = "grpSortMode";
-            this.grpSortMode.Size = new System.Drawing.Size(216, 52);
-            this.grpSortMode.TabIndex = 7;
-            this.grpSortMode.TabStop = false;
-            this.grpSortMode.Text = "ソート順";
-            // 
-            // rdoSortOwnerTable
-            // 
-            this.rdoSortOwnerTable.Location = new System.Drawing.Point(112, 16);
-            this.rdoSortOwnerTable.Name = "rdoSortOwnerTable";
-            this.rdoSortOwnerTable.Size = new System.Drawing.Size(96, 32);
-            this.rdoSortOwnerTable.TabIndex = 1;
-            this.rdoSortOwnerTable.Text = "オーナー名・オブジェクト名";
-            // 
-            // rdoSortTable
-            // 
-            this.rdoSortTable.Location = new System.Drawing.Point(8, 16);
-            this.rdoSortTable.Name = "rdoSortTable";
-            this.rdoSortTable.Size = new System.Drawing.Size(96, 32);
-            this.rdoSortTable.TabIndex = 0;
-            this.rdoSortTable.Text = "オブジェクト名のみ";
-            this.rdoSortTable.CheckedChanged += new System.EventHandler(this.rdoSortTable_CheckedChanged);
-            // 
-            // txtWhere
-            // 
-            this.txtWhere.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			this.objectList.Font = new System.Drawing.Font("MS Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.objectList.FullRowSelect = true;
+			this.objectList.GridLines = true;
+			this.objectList.HideSelection = false;
+			this.objectList.IsAutoColumSort = true;
+			this.objectList.Location = new System.Drawing.Point(3, 28);
+			this.objectList.Name = "objectList";
+			this.objectList.Size = new System.Drawing.Size(260, 297);
+			this.objectList.Sorting = System.Windows.Forms.SortOrder.Ascending;
+			this.objectList.TabIndex = 23;
+			this.objectList.UseCompatibleStateImageBehavior = false;
+			this.objectList.View = System.Windows.Forms.View.Details;
+			this.objectList.CopyData += new quickDBExplorer.qdbeListView.CopyDataEventHandler(this.objectList_CopyData);
+			this.objectList.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.objectList_ColumnClick);
+			this.objectList.SelectedIndexChanged += new System.EventHandler(this.objectList_SelectedIndexChanged);
+			this.objectList.DoubleClick += new System.EventHandler(this.InsertMake);
+			// 
+			// ColTVSType
+			// 
+			this.ColTVSType.Text = "";
+			this.ColTVSType.Width = 12;
+			// 
+			// ColOwner
+			// 
+			this.ColOwner.Text = "Owner";
+			this.ColOwner.Width = 50;
+			// 
+			// ColObjName
+			// 
+			this.ColObjName.Text = "名称";
+			this.ColObjName.Width = 226;
+			// 
+			// ColCreateDate
+			// 
+			this.ColCreateDate.Text = "作成日";
+			this.ColCreateDate.Width = 130;
+			// 
+			// menuISQLW
+			// 
+			this.menuISQLW.Index = -1;
+			this.menuISQLW.Text = "クエリアナライザ起動";
+			this.menuISQLW.Click += new System.EventHandler(this.CallISQLW);
+			// 
+			// btnInsert
+			// 
+			this.btnInsert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnInsert.Location = new System.Drawing.Point(269, 28);
+			this.btnInsert.Name = "btnInsert";
+			this.btnInsert.Size = new System.Drawing.Size(136, 26);
+			this.btnInsert.TabIndex = 24;
+			this.btnInsert.Text = "INSERT文作成(&I)";
+			// 
+			// btnFieldList
+			// 
+			this.btnFieldList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnFieldList.Location = new System.Drawing.Point(269, 59);
+			this.btnFieldList.Name = "btnFieldList";
+			this.btnFieldList.Size = new System.Drawing.Size(136, 26);
+			this.btnFieldList.TabIndex = 25;
+			this.btnFieldList.Text = "フィールドリスト作成(&F)";
+			// 
+			// btnCSV
+			// 
+			this.btnCSV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnCSV.Location = new System.Drawing.Point(269, 150);
+			this.btnCSV.Name = "btnCSV";
+			this.btnCSV.Size = new System.Drawing.Size(136, 26);
+			this.btnCSV.TabIndex = 28;
+			this.btnCSV.Text = "CSV等作成・読込(&K)";
+			// 
+			// rdoDispView
+			// 
+			this.rdoDispView.Location = new System.Drawing.Point(8, 17);
+			this.rdoDispView.Name = "rdoDispView";
+			this.rdoDispView.Size = new System.Drawing.Size(88, 18);
+			this.rdoDispView.TabIndex = 0;
+			this.rdoDispView.Text = "表示する";
+			this.rdoDispView.CheckedChanged += new System.EventHandler(this.rdoDispView_CheckedChanged);
+			// 
+			// grpViewMode
+			// 
+			this.grpViewMode.Controls.Add(this.rdoNotDispView);
+			this.grpViewMode.Controls.Add(this.rdoDispView);
+			this.grpViewMode.Location = new System.Drawing.Point(8, 62);
+			this.grpViewMode.Name = "grpViewMode";
+			this.grpViewMode.Size = new System.Drawing.Size(216, 43);
+			this.grpViewMode.TabIndex = 6;
+			this.grpViewMode.TabStop = false;
+			this.grpViewMode.Text = "VIEWを一覧に";
+			// 
+			// rdoNotDispView
+			// 
+			this.rdoNotDispView.Location = new System.Drawing.Point(112, 17);
+			this.rdoNotDispView.Name = "rdoNotDispView";
+			this.rdoNotDispView.Size = new System.Drawing.Size(88, 18);
+			this.rdoNotDispView.TabIndex = 1;
+			this.rdoNotDispView.Text = "表示しない";
+			// 
+			// grpSortMode
+			// 
+			this.grpSortMode.Controls.Add(this.rdoSortOwnerTable);
+			this.grpSortMode.Controls.Add(this.rdoSortTable);
+			this.grpSortMode.Location = new System.Drawing.Point(8, 109);
+			this.grpSortMode.Name = "grpSortMode";
+			this.grpSortMode.Size = new System.Drawing.Size(216, 57);
+			this.grpSortMode.TabIndex = 7;
+			this.grpSortMode.TabStop = false;
+			this.grpSortMode.Text = "ソート順";
+			// 
+			// rdoSortOwnerTable
+			// 
+			this.rdoSortOwnerTable.Location = new System.Drawing.Point(112, 17);
+			this.rdoSortOwnerTable.Name = "rdoSortOwnerTable";
+			this.rdoSortOwnerTable.Size = new System.Drawing.Size(96, 35);
+			this.rdoSortOwnerTable.TabIndex = 1;
+			this.rdoSortOwnerTable.Text = "オーナー名・オブジェクト名";
+			// 
+			// rdoSortTable
+			// 
+			this.rdoSortTable.Location = new System.Drawing.Point(8, 17);
+			this.rdoSortTable.Name = "rdoSortTable";
+			this.rdoSortTable.Size = new System.Drawing.Size(96, 35);
+			this.rdoSortTable.TabIndex = 0;
+			this.rdoSortTable.Text = "オブジェクト名のみ";
+			this.rdoSortTable.CheckedChanged += new System.EventHandler(this.rdoSortTable_CheckedChanged);
+			// 
+			// txtWhere
+			// 
+			this.txtWhere.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtWhere.CanCtrlDelete = true;
-            this.txtWhere.Histories = null;
-            this.txtWhere.HistoryKey = "txtWhere";
-            this.txtWhere.IsDigitOnly = false;
-            this.txtWhere.IsShowZoom = true;
-            this.txtWhere.Location = new System.Drawing.Point(72, 314);
-            this.txtWhere.Name = "txtWhere";
-            this.txtWhere.Size = new System.Drawing.Size(144, 19);
-            this.txtWhere.TabIndex = 11;
-            this.txtWhere.ShowHistory += new quickDBExplorer.ShowHistoryEventHandler(this.txtWhere_ShowHistory);
-            this.txtWhere.ShowZoom += new quickDBExplorer.ShowZoomEventHandler(this.txtWhere_ShowZoom);
-            this.txtWhere.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWhere_KeyDown);
-            this.txtWhere.Leave += new System.EventHandler(this.txtWhere_Leave);
-            // 
-            // txtSort
-            // 
-            this.txtSort.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			this.txtWhere.CanCtrlDelete = true;
+			this.txtWhere.Histories = null;
+			this.txtWhere.HistoryKey = "txtWhere";
+			this.txtWhere.IsDigitOnly = false;
+			this.txtWhere.IsShowZoom = true;
+			this.txtWhere.Location = new System.Drawing.Point(72, 340);
+			this.txtWhere.Name = "txtWhere";
+			this.txtWhere.Size = new System.Drawing.Size(144, 20);
+			this.txtWhere.TabIndex = 11;
+			this.txtWhere.ShowHistory += new quickDBExplorer.ShowHistoryEventHandler(this.txtWhere_ShowHistory);
+			this.txtWhere.ShowZoom += new quickDBExplorer.ShowZoomEventHandler(this.txtWhere_ShowZoom);
+			this.txtWhere.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWhere_KeyDown);
+			this.txtWhere.Leave += new System.EventHandler(this.txtWhere_Leave);
+			// 
+			// txtSort
+			// 
+			this.txtSort.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSort.CanCtrlDelete = true;
-            this.txtSort.Histories = null;
-            this.txtSort.HistoryKey = "txtSort";
-            this.txtSort.IsDigitOnly = false;
-            this.txtSort.IsShowZoom = true;
-            this.txtSort.Location = new System.Drawing.Point(72, 342);
-            this.txtSort.Name = "txtSort";
-            this.txtSort.Size = new System.Drawing.Size(144, 19);
-            this.txtSort.TabIndex = 14;
-            this.txtSort.ShowHistory += new quickDBExplorer.ShowHistoryEventHandler(this.txtSort_ShowHistory);
-            this.txtSort.ShowZoom += new quickDBExplorer.ShowZoomEventHandler(this.txtSort_ShowZoom);
-            this.txtSort.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSort_KeyDown);
-            this.txtSort.Leave += new System.EventHandler(this.txtSort_Leave);
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(8, 314);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 16);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "where(&P)";
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(8, 342);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 16);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "order by(&S)";
-            // 
-            // btnSelect
-            // 
-            this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelect.Location = new System.Drawing.Point(337, 82);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(136, 24);
-            this.btnSelect.TabIndex = 26;
-            this.btnSelect.Text = "Select 文生成(&X)";
-            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
-            // 
-            // ownerListbox
-            // 
-            this.ownerListbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.txtSort.CanCtrlDelete = true;
+			this.txtSort.Histories = null;
+			this.txtSort.HistoryKey = "txtSort";
+			this.txtSort.IsDigitOnly = false;
+			this.txtSort.IsShowZoom = true;
+			this.txtSort.Location = new System.Drawing.Point(72, 371);
+			this.txtSort.Name = "txtSort";
+			this.txtSort.Size = new System.Drawing.Size(144, 20);
+			this.txtSort.TabIndex = 14;
+			this.txtSort.ShowHistory += new quickDBExplorer.ShowHistoryEventHandler(this.txtSort_ShowHistory);
+			this.txtSort.ShowZoom += new quickDBExplorer.ShowZoomEventHandler(this.txtSort_ShowZoom);
+			this.txtSort.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSort_KeyDown);
+			this.txtSort.Leave += new System.EventHandler(this.txtSort_Leave);
+			// 
+			// label1
+			// 
+			this.label1.Location = new System.Drawing.Point(8, 340);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(52, 18);
+			this.label1.TabIndex = 10;
+			this.label1.Text = "where(&P)";
+			// 
+			// label2
+			// 
+			this.label2.Location = new System.Drawing.Point(8, 371);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(64, 17);
+			this.label2.TabIndex = 13;
+			this.label2.Text = "order by(&S)";
+			// 
+			// btnSelect
+			// 
+			this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnSelect.Location = new System.Drawing.Point(269, 89);
+			this.btnSelect.Name = "btnSelect";
+			this.btnSelect.Size = new System.Drawing.Size(136, 26);
+			this.btnSelect.TabIndex = 26;
+			this.btnSelect.Text = "Select 文生成(&X)";
+			this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+			// 
+			// ownerListbox
+			// 
+			this.ownerListbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ownerListbox.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.ownerListbox.HorizontalScrollbar = true;
-            this.ownerListbox.IntegralHeight = false;
-            this.ownerListbox.ItemHeight = 12;
-            this.ownerListbox.Location = new System.Drawing.Point(60, 3);
-            this.ownerListbox.Name = "ownerListbox";
-            this.ownerListbox.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.ownerListbox.Size = new System.Drawing.Size(184, 72);
-            this.ownerListbox.TabIndex = 4;
-            this.ownerListbox.CopyData += new quickDBExplorer.CopyDataEventHandler(this.ownerListbox_CopyData);
-            this.ownerListbox.SelectedIndexChanged += new System.EventHandler(this.ownerListbox_SelectedIndexChanged);
-            // 
-            // btnDDL
-            // 
-            this.btnDDL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDDL.Location = new System.Drawing.Point(337, 110);
-            this.btnDDL.Name = "btnDDL";
-            this.btnDDL.Size = new System.Drawing.Size(136, 24);
-            this.btnDDL.TabIndex = 27;
-            this.btnDDL.Text = "簡易定義文生成(&D)";
-            // 
-            // dbGrid
-            // 
-            this.dbGrid.AlternatingBackColor = System.Drawing.Color.Silver;
-            this.dbGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.ownerListbox.Font = new System.Drawing.Font("MS Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.ownerListbox.HorizontalScrollbar = true;
+			this.ownerListbox.IntegralHeight = false;
+			this.ownerListbox.ItemHeight = 12;
+			this.ownerListbox.Location = new System.Drawing.Point(60, 24);
+			this.ownerListbox.Name = "ownerListbox";
+			this.ownerListbox.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+			this.ownerListbox.Size = new System.Drawing.Size(184, 50);
+			this.ownerListbox.TabIndex = 4;
+			this.ownerListbox.CopyData += new quickDBExplorer.CopyDataEventHandler(this.ownerListbox_CopyData);
+			this.ownerListbox.SelectedIndexChanged += new System.EventHandler(this.ownerListbox_SelectedIndexChanged);
+			// 
+			// btnDDL
+			// 
+			this.btnDDL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnDDL.Location = new System.Drawing.Point(269, 119);
+			this.btnDDL.Name = "btnDDL";
+			this.btnDDL.Size = new System.Drawing.Size(136, 26);
+			this.btnDDL.TabIndex = 27;
+			this.btnDDL.Text = "簡易定義文生成(&D)";
+			// 
+			// dbGrid
+			// 
+			this.dbGrid.AlternatingBackColor = System.Drawing.Color.Silver;
+			this.dbGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dbGrid.BackColor = System.Drawing.Color.White;
-            this.dbGrid.CaptionBackColor = System.Drawing.Color.Gainsboro;
-            this.dbGrid.CaptionFont = new System.Drawing.Font("Tahoma", 8F);
-            this.dbGrid.CaptionForeColor = System.Drawing.Color.White;
-            this.dbGrid.CaptionVisible = false;
-            this.dbGrid.ContextMenu = this.dbGridMenu;
-            this.dbGrid.DataMember = "";
-            this.dbGrid.Font = new System.Drawing.Font("ＭＳ ゴシック", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dbGrid.ForeColor = System.Drawing.Color.Black;
-            this.dbGrid.GridLineColor = System.Drawing.Color.Silver;
-            this.dbGrid.HeaderBackColor = System.Drawing.Color.Silver;
-            this.dbGrid.HeaderFont = new System.Drawing.Font("ＭＳ ゴシック", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dbGrid.HeaderForeColor = System.Drawing.Color.Black;
-            this.dbGrid.LinkColor = System.Drawing.Color.Maroon;
-            this.dbGrid.Location = new System.Drawing.Point(4, 64);
-            this.dbGrid.Name = "dbGrid";
-            this.dbGrid.ParentRowsBackColor = System.Drawing.Color.Silver;
-            this.dbGrid.ParentRowsForeColor = System.Drawing.Color.Black;
-            this.dbGrid.RowHeaderWidth = 40;
-            this.dbGrid.SelectionBackColor = System.Drawing.Color.Maroon;
-            this.dbGrid.SelectionForeColor = System.Drawing.Color.White;
-            this.dbGrid.Size = new System.Drawing.Size(764, 240);
-            this.dbGrid.TabIndex = 42;
-            this.dbGrid.Paint += new System.Windows.Forms.PaintEventHandler(this.dbGrid_Paint);
-            this.dbGrid.Leave += new System.EventHandler(this.dbGrid_Leave);
-            // 
-            // dbGridMenu
-            // 
-            this.dbGridMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+			this.dbGrid.BackColor = System.Drawing.Color.White;
+			this.dbGrid.CaptionBackColor = System.Drawing.Color.Gainsboro;
+			this.dbGrid.CaptionFont = new System.Drawing.Font("Tahoma", 8F);
+			this.dbGrid.CaptionForeColor = System.Drawing.Color.White;
+			this.dbGrid.CaptionVisible = false;
+			this.dbGrid.ContextMenu = this.dbGridMenu;
+			this.dbGrid.DataMember = "";
+			this.dbGrid.Font = new System.Drawing.Font("MS Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.dbGrid.ForeColor = System.Drawing.Color.Black;
+			this.dbGrid.GridLineColor = System.Drawing.Color.Silver;
+			this.dbGrid.HeaderBackColor = System.Drawing.Color.Silver;
+			this.dbGrid.HeaderFont = new System.Drawing.Font("MS Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.dbGrid.HeaderForeColor = System.Drawing.Color.Black;
+			this.dbGrid.LinkColor = System.Drawing.Color.Maroon;
+			this.dbGrid.Location = new System.Drawing.Point(4, 69);
+			this.dbGrid.Name = "dbGrid";
+			this.dbGrid.ParentRowsBackColor = System.Drawing.Color.Silver;
+			this.dbGrid.ParentRowsForeColor = System.Drawing.Color.Black;
+			this.dbGrid.RowHeaderWidth = 40;
+			this.dbGrid.SelectionBackColor = System.Drawing.Color.Maroon;
+			this.dbGrid.SelectionForeColor = System.Drawing.Color.White;
+			this.dbGrid.Size = new System.Drawing.Size(764, 240);
+			this.dbGrid.TabIndex = 42;
+			this.dbGrid.Paint += new System.Windows.Forms.PaintEventHandler(this.dbGrid_Paint);
+			this.dbGrid.Leave += new System.EventHandler(this.dbGrid_Leave);
+			// 
+			// dbGridMenu
+			// 
+			this.dbGridMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.copyDbGridMenu,
             this.copySelectedDbGridMenu,
             this.allSelectDbGridMenu,
@@ -836,241 +845,241 @@ namespace quickDBExplorer.Forms
             this.readCsvDQDbGridMenu,
             this.readTsvDbGridMenu,
             this.readTsvDQDbGridMenu});
-            this.dbGridMenu.Popup += new System.EventHandler(this.dbGridMenu_Popup);
-            // 
-            // copyDbGridMenu
-            // 
-            this.copyDbGridMenu.Index = 0;
-            this.copyDbGridMenu.Text = "全ての行をクリップボードにコピー";
-            this.copyDbGridMenu.Click += new System.EventHandler(this.copyDbGridMenu_Click);
-            // 
-            // copySelectedDbGridMenu
-            // 
-            this.copySelectedDbGridMenu.Index = 1;
-            this.copySelectedDbGridMenu.Text = "選択行のみクリップボードにコピー";
-            this.copySelectedDbGridMenu.Click += new System.EventHandler(this.copySelectedDbGridMenu_Click);
-            // 
-            // allSelectDbGridMenu
-            // 
-            this.allSelectDbGridMenu.Index = 2;
-            this.allSelectDbGridMenu.Text = "全行選択";
-            this.allSelectDbGridMenu.Click += new System.EventHandler(this.allSelectDbGridMenu_Click);
-            // 
-            // allUnSelectDbGridMenu
-            // 
-            this.allUnSelectDbGridMenu.Index = 3;
-            this.allUnSelectDbGridMenu.Text = "全行選択解除";
-            this.allUnSelectDbGridMenu.Click += new System.EventHandler(this.allUnSelectDbGridMenu_Click);
-            // 
-            // readCsvDbGridMenu
-            // 
-            this.readCsvDbGridMenu.Index = 4;
-            this.readCsvDbGridMenu.Text = "データ取込(CSV)";
-            this.readCsvDbGridMenu.Click += new System.EventHandler(this.readCsvDbGridMenu_Click);
-            // 
-            // readCsvDQDbGridMenu
-            // 
-            this.readCsvDQDbGridMenu.Index = 5;
-            this.readCsvDQDbGridMenu.Text = "データ取込(CSV)(\"付き)";
-            this.readCsvDQDbGridMenu.Click += new System.EventHandler(this.readCsvDQDbGridMenu_Click);
-            // 
-            // readTsvDbGridMenu
-            // 
-            this.readTsvDbGridMenu.Index = 6;
-            this.readTsvDbGridMenu.Text = "データ取込(TAB)";
-            this.readTsvDbGridMenu.Click += new System.EventHandler(this.readTsvDbGridMenu_Click);
-            // 
-            // readTsvDQDbGridMenu
-            // 
-            this.readTsvDQDbGridMenu.Index = 7;
-            this.readTsvDQDbGridMenu.Text = "データ取込(TAB)(\"付き)";
-            this.readTsvDQDbGridMenu.Click += new System.EventHandler(this.readTsvDQDbGridMenu_Click);
-            // 
-            // chkDispData
-            // 
-            this.chkDispData.Location = new System.Drawing.Point(14, 14);
-            this.chkDispData.Name = "chkDispData";
-            this.chkDispData.Size = new System.Drawing.Size(52, 24);
-            this.chkDispData.TabIndex = 2;
-            this.chkDispData.Text = "表示";
-            this.chkDispData.CheckedChanged += new System.EventHandler(this.chkDispData_CheckedChanged);
-            // 
-            // grpDataDispMode
-            // 
-            this.grpDataDispMode.Controls.Add(this.txtDispCount);
-            this.grpDataDispMode.Controls.Add(this.label3);
-            this.grpDataDispMode.Controls.Add(this.chkDispData);
-            this.grpDataDispMode.Location = new System.Drawing.Point(8, 391);
-            this.grpDataDispMode.Name = "grpDataDispMode";
-            this.grpDataDispMode.Size = new System.Drawing.Size(216, 44);
-            this.grpDataDispMode.TabIndex = 18;
-            this.grpDataDispMode.TabStop = false;
-            this.grpDataDispMode.Text = "データグリッド";
-            // 
-            // txtDispCount
-            // 
-            this.txtDispCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtDispCount.CanCtrlDelete = true;
-            this.txtDispCount.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.txtDispCount.Histories = null;
-            this.txtDispCount.HistoryKey = "txtDispCount";
-            this.txtDispCount.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.txtDispCount.IsDigitOnly = true;
-            this.txtDispCount.IsShowZoom = false;
-            this.txtDispCount.Location = new System.Drawing.Point(132, 16);
-            this.txtDispCount.MaxLength = 300;
-            this.txtDispCount.Name = "txtDispCount";
-            this.txtDispCount.Size = new System.Drawing.Size(72, 19);
-            this.txtDispCount.TabIndex = 1;
-            this.txtDispCount.Text = "1000";
-            this.txtDispCount.TextChanged += new System.EventHandler(this.txtDispCount_TextChanged);
-            this.txtDispCount.Leave += new System.EventHandler(this.txtDispCount_Leave);
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label3.Location = new System.Drawing.Point(72, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 16);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "表示件数";
-            // 
-            // grpSysUserMode
-            // 
-            this.grpSysUserMode.Controls.Add(this.rdoNotDispSysUser);
-            this.grpSysUserMode.Controls.Add(this.rdoDispSysUser);
-            this.grpSysUserMode.Location = new System.Drawing.Point(8, 13);
-            this.grpSysUserMode.Name = "grpSysUserMode";
-            this.grpSysUserMode.Size = new System.Drawing.Size(216, 40);
-            this.grpSysUserMode.TabIndex = 5;
-            this.grpSysUserMode.TabStop = false;
-            this.grpSysUserMode.Text = "システムユーザーを";
-            // 
-            // rdoNotDispSysUser
-            // 
-            this.rdoNotDispSysUser.Checked = true;
-            this.rdoNotDispSysUser.Location = new System.Drawing.Point(112, 16);
-            this.rdoNotDispSysUser.Name = "rdoNotDispSysUser";
-            this.rdoNotDispSysUser.Size = new System.Drawing.Size(88, 16);
-            this.rdoNotDispSysUser.TabIndex = 1;
-            this.rdoNotDispSysUser.TabStop = true;
-            this.rdoNotDispSysUser.Text = "表示しない";
-            this.rdoNotDispSysUser.CheckedChanged += new System.EventHandler(this.rdoNotDispSysUser_CheckedChanged);
-            // 
-            // rdoDispSysUser
-            // 
-            this.rdoDispSysUser.Location = new System.Drawing.Point(8, 16);
-            this.rdoDispSysUser.Name = "rdoDispSysUser";
-            this.rdoDispSysUser.Size = new System.Drawing.Size(88, 16);
-            this.rdoDispSysUser.TabIndex = 0;
-            this.rdoDispSysUser.Text = "表示する";
-            this.rdoDispSysUser.CheckedChanged += new System.EventHandler(this.rdoDispSysUser_CheckedChanged);
-            // 
-            // grpOutputMode
-            // 
-            this.grpOutputMode.Controls.Add(this.btnReference);
-            this.grpOutputMode.Controls.Add(this.txtOutput);
-            this.grpOutputMode.Controls.Add(this.rdoOutFile);
-            this.grpOutputMode.Controls.Add(this.rdoClipboard);
-            this.grpOutputMode.Controls.Add(this.rdoOutFolder);
-            this.grpOutputMode.Location = new System.Drawing.Point(8, 156);
-            this.grpOutputMode.Name = "grpOutputMode";
-            this.grpOutputMode.Size = new System.Drawing.Size(216, 84);
-            this.grpOutputMode.TabIndex = 8;
-            this.grpOutputMode.TabStop = false;
-            this.grpOutputMode.Text = "出力先";
-            // 
-            // btnReference
-            // 
-            this.btnReference.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnReference.Location = new System.Drawing.Point(168, 55);
-            this.btnReference.Name = "btnReference";
-            this.btnReference.Size = new System.Drawing.Size(40, 20);
-            this.btnReference.TabIndex = 4;
-            this.btnReference.Text = "参照(&R)";
-            this.btnReference.Click += new System.EventHandler(this.btnReference_Click);
-            // 
-            // txtOutput
-            // 
-            this.txtOutput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			this.dbGridMenu.Popup += new System.EventHandler(this.dbGridMenu_Popup);
+			// 
+			// copyDbGridMenu
+			// 
+			this.copyDbGridMenu.Index = 0;
+			this.copyDbGridMenu.Text = "全ての行をクリップボードにコピー";
+			this.copyDbGridMenu.Click += new System.EventHandler(this.copyDbGridMenu_Click);
+			// 
+			// copySelectedDbGridMenu
+			// 
+			this.copySelectedDbGridMenu.Index = 1;
+			this.copySelectedDbGridMenu.Text = "選択行のみクリップボードにコピー";
+			this.copySelectedDbGridMenu.Click += new System.EventHandler(this.copySelectedDbGridMenu_Click);
+			// 
+			// allSelectDbGridMenu
+			// 
+			this.allSelectDbGridMenu.Index = 2;
+			this.allSelectDbGridMenu.Text = "全行選択";
+			this.allSelectDbGridMenu.Click += new System.EventHandler(this.allSelectDbGridMenu_Click);
+			// 
+			// allUnSelectDbGridMenu
+			// 
+			this.allUnSelectDbGridMenu.Index = 3;
+			this.allUnSelectDbGridMenu.Text = "全行選択解除";
+			this.allUnSelectDbGridMenu.Click += new System.EventHandler(this.allUnSelectDbGridMenu_Click);
+			// 
+			// readCsvDbGridMenu
+			// 
+			this.readCsvDbGridMenu.Index = 4;
+			this.readCsvDbGridMenu.Text = "データ取込(CSV)";
+			this.readCsvDbGridMenu.Click += new System.EventHandler(this.readCsvDbGridMenu_Click);
+			// 
+			// readCsvDQDbGridMenu
+			// 
+			this.readCsvDQDbGridMenu.Index = 5;
+			this.readCsvDQDbGridMenu.Text = "データ取込(CSV)(\"付き)";
+			this.readCsvDQDbGridMenu.Click += new System.EventHandler(this.readCsvDQDbGridMenu_Click);
+			// 
+			// readTsvDbGridMenu
+			// 
+			this.readTsvDbGridMenu.Index = 6;
+			this.readTsvDbGridMenu.Text = "データ取込(TAB)";
+			this.readTsvDbGridMenu.Click += new System.EventHandler(this.readTsvDbGridMenu_Click);
+			// 
+			// readTsvDQDbGridMenu
+			// 
+			this.readTsvDQDbGridMenu.Index = 7;
+			this.readTsvDQDbGridMenu.Text = "データ取込(TAB)(\"付き)";
+			this.readTsvDQDbGridMenu.Click += new System.EventHandler(this.readTsvDQDbGridMenu_Click);
+			// 
+			// chkDispData
+			// 
+			this.chkDispData.Location = new System.Drawing.Point(14, 15);
+			this.chkDispData.Name = "chkDispData";
+			this.chkDispData.Size = new System.Drawing.Size(52, 26);
+			this.chkDispData.TabIndex = 2;
+			this.chkDispData.Text = "表示";
+			this.chkDispData.CheckedChanged += new System.EventHandler(this.chkDispData_CheckedChanged);
+			// 
+			// grpDataDispMode
+			// 
+			this.grpDataDispMode.Controls.Add(this.txtDispCount);
+			this.grpDataDispMode.Controls.Add(this.label3);
+			this.grpDataDispMode.Controls.Add(this.chkDispData);
+			this.grpDataDispMode.Location = new System.Drawing.Point(8, 424);
+			this.grpDataDispMode.Name = "grpDataDispMode";
+			this.grpDataDispMode.Size = new System.Drawing.Size(216, 47);
+			this.grpDataDispMode.TabIndex = 18;
+			this.grpDataDispMode.TabStop = false;
+			this.grpDataDispMode.Text = "データグリッド";
+			// 
+			// txtDispCount
+			// 
+			this.txtDispCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.txtDispCount.CanCtrlDelete = true;
+			this.txtDispCount.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
+			this.txtDispCount.Histories = null;
+			this.txtDispCount.HistoryKey = "txtDispCount";
+			this.txtDispCount.ImeMode = System.Windows.Forms.ImeMode.Disable;
+			this.txtDispCount.IsDigitOnly = true;
+			this.txtDispCount.IsShowZoom = false;
+			this.txtDispCount.Location = new System.Drawing.Point(132, 17);
+			this.txtDispCount.MaxLength = 300;
+			this.txtDispCount.Name = "txtDispCount";
+			this.txtDispCount.Size = new System.Drawing.Size(72, 20);
+			this.txtDispCount.TabIndex = 1;
+			this.txtDispCount.Text = "1000";
+			this.txtDispCount.TextChanged += new System.EventHandler(this.txtDispCount_TextChanged);
+			this.txtDispCount.Leave += new System.EventHandler(this.txtDispCount_Leave);
+			// 
+			// label3
+			// 
+			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.label3.Location = new System.Drawing.Point(72, 22);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(56, 17);
+			this.label3.TabIndex = 0;
+			this.label3.Text = "表示件数";
+			// 
+			// grpSysUserMode
+			// 
+			this.grpSysUserMode.Controls.Add(this.rdoNotDispSysUser);
+			this.grpSysUserMode.Controls.Add(this.rdoDispSysUser);
+			this.grpSysUserMode.Location = new System.Drawing.Point(8, 14);
+			this.grpSysUserMode.Name = "grpSysUserMode";
+			this.grpSysUserMode.Size = new System.Drawing.Size(216, 43);
+			this.grpSysUserMode.TabIndex = 5;
+			this.grpSysUserMode.TabStop = false;
+			this.grpSysUserMode.Text = "システムユーザーを";
+			// 
+			// rdoNotDispSysUser
+			// 
+			this.rdoNotDispSysUser.Checked = true;
+			this.rdoNotDispSysUser.Location = new System.Drawing.Point(112, 17);
+			this.rdoNotDispSysUser.Name = "rdoNotDispSysUser";
+			this.rdoNotDispSysUser.Size = new System.Drawing.Size(88, 18);
+			this.rdoNotDispSysUser.TabIndex = 1;
+			this.rdoNotDispSysUser.TabStop = true;
+			this.rdoNotDispSysUser.Text = "表示しない";
+			this.rdoNotDispSysUser.CheckedChanged += new System.EventHandler(this.rdoNotDispSysUser_CheckedChanged);
+			// 
+			// rdoDispSysUser
+			// 
+			this.rdoDispSysUser.Location = new System.Drawing.Point(8, 17);
+			this.rdoDispSysUser.Name = "rdoDispSysUser";
+			this.rdoDispSysUser.Size = new System.Drawing.Size(88, 18);
+			this.rdoDispSysUser.TabIndex = 0;
+			this.rdoDispSysUser.Text = "表示する";
+			this.rdoDispSysUser.CheckedChanged += new System.EventHandler(this.rdoDispSysUser_CheckedChanged);
+			// 
+			// grpOutputMode
+			// 
+			this.grpOutputMode.Controls.Add(this.btnReference);
+			this.grpOutputMode.Controls.Add(this.txtOutput);
+			this.grpOutputMode.Controls.Add(this.rdoOutFile);
+			this.grpOutputMode.Controls.Add(this.rdoClipboard);
+			this.grpOutputMode.Controls.Add(this.rdoOutFolder);
+			this.grpOutputMode.Location = new System.Drawing.Point(8, 169);
+			this.grpOutputMode.Name = "grpOutputMode";
+			this.grpOutputMode.Size = new System.Drawing.Size(216, 91);
+			this.grpOutputMode.TabIndex = 8;
+			this.grpOutputMode.TabStop = false;
+			this.grpOutputMode.Text = "出力先";
+			// 
+			// btnReference
+			// 
+			this.btnReference.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnReference.Location = new System.Drawing.Point(168, 60);
+			this.btnReference.Name = "btnReference";
+			this.btnReference.Size = new System.Drawing.Size(40, 21);
+			this.btnReference.TabIndex = 4;
+			this.btnReference.Text = "参照(&R)";
+			this.btnReference.Click += new System.EventHandler(this.btnReference_Click);
+			// 
+			// txtOutput
+			// 
+			this.txtOutput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtOutput.CanCtrlDelete = true;
-            this.txtOutput.Histories = null;
-            this.txtOutput.HistoryKey = "txtOutput";
-            this.txtOutput.IsDigitOnly = false;
-            this.txtOutput.IsShowZoom = false;
-            this.txtOutput.Location = new System.Drawing.Point(8, 55);
-            this.txtOutput.Name = "txtOutput";
-            this.txtOutput.Size = new System.Drawing.Size(160, 19);
-            this.txtOutput.TabIndex = 3;
-            this.txtOutput.TextChanged += new System.EventHandler(this.txtOutput_TextChanged);
-            // 
-            // rdoOutFile
-            // 
-            this.rdoOutFile.Location = new System.Drawing.Point(8, 35);
-            this.rdoOutFile.Name = "rdoOutFile";
-            this.rdoOutFile.Size = new System.Drawing.Size(88, 16);
-            this.rdoOutFile.TabIndex = 1;
-            this.rdoOutFile.Text = "単独ファイル";
-            this.rdoOutFile.CheckedChanged += new System.EventHandler(this.rdoOutFile_CheckedChanged);
-            // 
-            // rdoClipboard
-            // 
-            this.rdoClipboard.Location = new System.Drawing.Point(8, 15);
-            this.rdoClipboard.Name = "rdoClipboard";
-            this.rdoClipboard.Size = new System.Drawing.Size(88, 16);
-            this.rdoClipboard.TabIndex = 0;
-            this.rdoClipboard.Text = "クリップボード";
-            this.rdoClipboard.CheckedChanged += new System.EventHandler(this.rdoClipboard_CheckedChanged);
-            // 
-            // rdoOutFolder
-            // 
-            this.rdoOutFolder.Location = new System.Drawing.Point(104, 35);
-            this.rdoOutFolder.Name = "rdoOutFolder";
-            this.rdoOutFolder.Size = new System.Drawing.Size(88, 16);
-            this.rdoOutFolder.TabIndex = 2;
-            this.rdoOutFolder.Text = "複数ファイル";
-            this.rdoOutFolder.CheckedChanged += new System.EventHandler(this.rdoOutFolder_CheckedChanged);
-            // 
-            // labelDB
-            // 
-            this.labelDB.Location = new System.Drawing.Point(10, 18);
-            this.labelDB.Name = "labelDB";
-            this.labelDB.Size = new System.Drawing.Size(48, 32);
-            this.labelDB.TabIndex = 0;
-            this.labelDB.Text = "DB(&B)";
-            this.labelDB.DoubleClick += new System.EventHandler(this.labelDB_DoubleClick);
-            this.labelDB.MouseClick += new System.Windows.Forms.MouseEventHandler(this.labelDB_MouseClick);
-            // 
-            // labelSchema
-            // 
-            this.labelSchema.Location = new System.Drawing.Point(6, 12);
-            this.labelSchema.Name = "labelSchema";
-            this.labelSchema.Size = new System.Drawing.Size(48, 32);
-            this.labelSchema.TabIndex = 3;
-            this.labelSchema.Text = "owner/Role(&O)";
-            this.labelSchema.DoubleClick += new System.EventHandler(this.labelSchema_DoubleClick);
-            // 
-            // fieldListbox
-            // 
-            this.fieldListbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.txtOutput.CanCtrlDelete = true;
+			this.txtOutput.Histories = null;
+			this.txtOutput.HistoryKey = "txtOutput";
+			this.txtOutput.IsDigitOnly = false;
+			this.txtOutput.IsShowZoom = false;
+			this.txtOutput.Location = new System.Drawing.Point(8, 60);
+			this.txtOutput.Name = "txtOutput";
+			this.txtOutput.Size = new System.Drawing.Size(160, 20);
+			this.txtOutput.TabIndex = 3;
+			this.txtOutput.TextChanged += new System.EventHandler(this.txtOutput_TextChanged);
+			// 
+			// rdoOutFile
+			// 
+			this.rdoOutFile.Location = new System.Drawing.Point(8, 38);
+			this.rdoOutFile.Name = "rdoOutFile";
+			this.rdoOutFile.Size = new System.Drawing.Size(88, 17);
+			this.rdoOutFile.TabIndex = 1;
+			this.rdoOutFile.Text = "単独ファイル";
+			this.rdoOutFile.CheckedChanged += new System.EventHandler(this.rdoOutFile_CheckedChanged);
+			// 
+			// rdoClipboard
+			// 
+			this.rdoClipboard.Location = new System.Drawing.Point(8, 16);
+			this.rdoClipboard.Name = "rdoClipboard";
+			this.rdoClipboard.Size = new System.Drawing.Size(88, 18);
+			this.rdoClipboard.TabIndex = 0;
+			this.rdoClipboard.Text = "クリップボード";
+			this.rdoClipboard.CheckedChanged += new System.EventHandler(this.rdoClipboard_CheckedChanged);
+			// 
+			// rdoOutFolder
+			// 
+			this.rdoOutFolder.Location = new System.Drawing.Point(104, 38);
+			this.rdoOutFolder.Name = "rdoOutFolder";
+			this.rdoOutFolder.Size = new System.Drawing.Size(88, 17);
+			this.rdoOutFolder.TabIndex = 2;
+			this.rdoOutFolder.Text = "複数ファイル";
+			this.rdoOutFolder.CheckedChanged += new System.EventHandler(this.rdoOutFolder_CheckedChanged);
+			// 
+			// labelDB
+			// 
+			this.labelDB.Location = new System.Drawing.Point(10, 20);
+			this.labelDB.Name = "labelDB";
+			this.labelDB.Size = new System.Drawing.Size(48, 34);
+			this.labelDB.TabIndex = 0;
+			this.labelDB.Text = "DB(&B)";
+			this.labelDB.DoubleClick += new System.EventHandler(this.labelDB_DoubleClick);
+			this.labelDB.MouseClick += new System.Windows.Forms.MouseEventHandler(this.labelDB_MouseClick);
+			// 
+			// labelSchema
+			// 
+			this.labelSchema.Location = new System.Drawing.Point(6, 13);
+			this.labelSchema.Name = "labelSchema";
+			this.labelSchema.Size = new System.Drawing.Size(48, 35);
+			this.labelSchema.TabIndex = 3;
+			this.labelSchema.Text = "owner/Role(&O)";
+			this.labelSchema.DoubleClick += new System.EventHandler(this.labelSchema_DoubleClick);
+			// 
+			// fieldListbox
+			// 
+			this.fieldListbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.fieldListbox.ContextMenu = this.fldContextMenu;
-            this.fieldListbox.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.fieldListbox.HorizontalScrollbar = true;
-            this.fieldListbox.ItemHeight = 12;
-            this.fieldListbox.Location = new System.Drawing.Point(1, 26);
-            this.fieldListbox.Name = "fieldListbox";
-            this.fieldListbox.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.fieldListbox.Size = new System.Drawing.Size(292, 292);
-            this.fieldListbox.TabIndex = 35;
-            this.fieldListbox.CopyData += new quickDBExplorer.CopyDataEventHandler(this.fieldListbox_CopyData);
-            this.fieldListbox.ExtendedCopyData += new quickDBExplorer.ExtendedCopyDataEventHandler(this.fieldListbox_ExtendedCopyData);
-            // 
-            // fldContextMenu
-            // 
-            this.fldContextMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+			this.fieldListbox.ContextMenu = this.fldContextMenu;
+			this.fieldListbox.Font = new System.Drawing.Font("MS Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.fieldListbox.HorizontalScrollbar = true;
+			this.fieldListbox.ItemHeight = 12;
+			this.fieldListbox.Location = new System.Drawing.Point(1, 28);
+			this.fieldListbox.Name = "fieldListbox";
+			this.fieldListbox.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+			this.fieldListbox.Size = new System.Drawing.Size(298, 280);
+			this.fieldListbox.TabIndex = 35;
+			this.fieldListbox.CopyData += new quickDBExplorer.CopyDataEventHandler(this.fieldListbox_CopyData);
+			this.fieldListbox.ExtendedCopyData += new quickDBExplorer.ExtendedCopyDataEventHandler(this.fieldListbox_ExtendedCopyData);
+			// 
+			// fldContextMenu
+			// 
+			this.fldContextMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.fldmenuCopy,
             this.fldmenuCopyNoCRLF,
             this.fldmenuCopyNoComma,
@@ -1079,556 +1088,585 @@ namespace quickDBExplorer.Forms
             this.menuFieldMakeWhere,
             this.fldmenuMakePoco,
             this.fldmenuMakePocoNoClass});
-            // 
-            // fldmenuCopy
-            // 
-            this.fldmenuCopy.Index = 0;
-            this.fldmenuCopy.Text = "コピー";
-            this.fldmenuCopy.Click += new System.EventHandler(this.fldmenuCopy_Click);
-            // 
-            // fldmenuCopyNoCRLF
-            // 
-            this.fldmenuCopyNoCRLF.Index = 1;
-            this.fldmenuCopyNoCRLF.Text = "改行なしコピー";
-            this.fldmenuCopyNoCRLF.Click += new System.EventHandler(this.fldmenuCopyNoCRLF_Click);
-            // 
-            // fldmenuCopyNoComma
-            // 
-            this.fldmenuCopyNoComma.Index = 2;
-            this.fldmenuCopyNoComma.Text = "コピーカンマなし";
-            this.fldmenuCopyNoComma.Click += new System.EventHandler(this.fldmenuCopyNoComma_Click);
-            // 
-            // fldmenuCopyNoCRLFNoComma
-            // 
-            this.fldmenuCopyNoCRLFNoComma.Index = 3;
-            this.fldmenuCopyNoCRLFNoComma.Text = "コピー改行・カンマなし";
-            this.fldmenuCopyNoCRLFNoComma.Click += new System.EventHandler(this.fldmenuCopyNoCRLFNoComma_Click);
-            // 
-            // menuFieldAliasCopy
-            // 
-            this.menuFieldAliasCopy.Index = 4;
-            this.menuFieldAliasCopy.Text = "条件指定コピー";
-            this.menuFieldAliasCopy.Click += new System.EventHandler(this.menuFieldAliasCopy_Click);
-            // 
-            // menuFieldMakeWhere
-            // 
-            this.menuFieldMakeWhere.Index = 5;
-            this.menuFieldMakeWhere.Text = "where 句生成";
-            this.menuFieldMakeWhere.Click += new System.EventHandler(this.menuFieldMakeWhere_Click);
-            // 
-            // fldmenuMakePoco
-            // 
-            this.fldmenuMakePoco.Index = 6;
-            this.fldmenuMakePoco.Text = "Pocoクラス生成";
-            this.fldmenuMakePoco.Click += new System.EventHandler(this.fldmenuMakePoco_Click);
-            // 
-            // fldmenuMakePocoNoClass
-            // 
-            this.fldmenuMakePocoNoClass.Index = 7;
-            this.fldmenuMakePocoNoClass.Text = "Pocoクラス生成(クラス無し)";
-            this.fldmenuMakePocoNoClass.Click += new System.EventHandler(this.fldmenuMakePocoNoClass_Click);
-            // 
-            // label9
-            // 
-            this.label9.Location = new System.Drawing.Point(8, 44);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(280, 16);
-            this.label9.TabIndex = 37;
-            this.label9.Text = "複数行にわたる文字列はとき色(ピンク)に着色されます。";
-            this.commTooltip.SetToolTip(this.label9, "セル背景色: 水色 ⇒ NULL値 : とき色(ピンク) ⇒ 複数行にわたる文字列 : コバルトグリーン ⇒ バイナリデータ");
-            // 
-            // label7
-            // 
-            this.label7.Location = new System.Drawing.Point(8, 8);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(368, 16);
-            this.label7.TabIndex = 35;
-            this.label7.Text = "見出しに★がある列はNULL可です。NULLのセルは水色に着色されます。";
-            this.commTooltip.SetToolTip(this.label7, "セル背景色: 水色 ⇒ NULL値 : とき色(ピンク) ⇒ 複数行にわたる文字列 : コバルトグリーン ⇒ バイナリデータ");
-            // 
-            // label8
-            // 
-            this.label8.Location = new System.Drawing.Point(8, 24);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(500, 16);
-            this.label8.TabIndex = 36;
-            this.label8.Text = "NULLを入力するにはCtrl+1 を、空文字列を入力するにはCtrl+2を押下します。Ctrl+3で値拡大表示。";
-            this.commTooltip.SetToolTip(this.label8, "セル背景色: 水色 ⇒ NULL値 : とき色(ピンク) ⇒ 複数行にわたる文字列 : コバルトグリーン ⇒ バイナリデータ");
-            // 
-            // grpCharaSet
-            // 
-            this.grpCharaSet.Controls.Add(this.rdoUtf8);
-            this.grpCharaSet.Controls.Add(this.rdoSjis);
-            this.grpCharaSet.Controls.Add(this.rdoUnicode);
-            this.grpCharaSet.Location = new System.Drawing.Point(8, 244);
-            this.grpCharaSet.Name = "grpCharaSet";
-            this.grpCharaSet.Size = new System.Drawing.Size(216, 60);
-            this.grpCharaSet.TabIndex = 9;
-            this.grpCharaSet.TabStop = false;
-            this.grpCharaSet.Text = "出力文字コード";
-            // 
-            // rdoUtf8
-            // 
-            this.rdoUtf8.Location = new System.Drawing.Point(8, 36);
-            this.rdoUtf8.Name = "rdoUtf8";
-            this.rdoUtf8.Size = new System.Drawing.Size(80, 16);
-            this.rdoUtf8.TabIndex = 2;
-            this.rdoUtf8.Text = "UTF-8";
-            this.rdoUtf8.CheckedChanged += new System.EventHandler(this.rdoUtf8_CheckedChanged);
-            // 
-            // rdoSjis
-            // 
-            this.rdoSjis.Location = new System.Drawing.Point(104, 16);
-            this.rdoSjis.Name = "rdoSjis";
-            this.rdoSjis.Size = new System.Drawing.Size(80, 16);
-            this.rdoSjis.TabIndex = 1;
-            this.rdoSjis.Text = "ShiftJIS";
-            this.rdoSjis.CheckedChanged += new System.EventHandler(this.rdoSjis_CheckedChanged);
-            // 
-            // rdoUnicode
-            // 
-            this.rdoUnicode.Location = new System.Drawing.Point(8, 16);
-            this.rdoUnicode.Name = "rdoUnicode";
-            this.rdoUnicode.Size = new System.Drawing.Size(92, 16);
-            this.rdoUnicode.TabIndex = 0;
-            this.rdoUnicode.Text = "UNICODE";
-            this.rdoUnicode.CheckedChanged += new System.EventHandler(this.rdoUnicode_CheckedChanged);
-            // 
-            // chkDispFieldAttr
-            // 
-            this.chkDispFieldAttr.Location = new System.Drawing.Point(3, 6);
-            this.chkDispFieldAttr.Name = "chkDispFieldAttr";
-            this.chkDispFieldAttr.Size = new System.Drawing.Size(161, 20);
-            this.chkDispFieldAttr.TabIndex = 34;
-            this.chkDispFieldAttr.Text = "フィールド属性を表示(&Z)";
-            this.chkDispFieldAttr.CheckedChanged += new System.EventHandler(this.chkDispFieldAttr_CheckedChanged);
-            // 
-            // btnQuerySelect
-            // 
-            this.btnQuerySelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnQuerySelect.Location = new System.Drawing.Point(337, 222);
-            this.btnQuerySelect.Name = "btnQuerySelect";
-            this.btnQuerySelect.Size = new System.Drawing.Size(136, 24);
-            this.btnQuerySelect.TabIndex = 31;
-            this.btnQuerySelect.Text = "クエリ指定結果表示(&J)";
-            this.btnQuerySelect.Click += new System.EventHandler(this.btnQuerySelect_Click);
-            // 
-            // btnDataUpdate
-            // 
-            this.btnDataUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDataUpdate.Location = new System.Drawing.Point(337, 286);
-            this.btnDataUpdate.Name = "btnDataUpdate";
-            this.btnDataUpdate.Size = new System.Drawing.Size(132, 24);
-            this.btnDataUpdate.TabIndex = 33;
-            this.btnDataUpdate.Text = "データ更新(&U)";
-            this.btnDataUpdate.Click += new System.EventHandler(this.btnDataUpdate_Click);
-            // 
-            // btnDataEdit
-            // 
-            this.btnDataEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDataEdit.Location = new System.Drawing.Point(337, 258);
-            this.btnDataEdit.Name = "btnDataEdit";
-            this.btnDataEdit.Size = new System.Drawing.Size(132, 24);
-            this.btnDataEdit.TabIndex = 32;
-            this.btnDataEdit.Text = "データ編集(&T)";
-            this.btnDataEdit.Click += new System.EventHandler(this.btnDataEdit_Click);
-            // 
-            // btnGridFormat
-            // 
-            this.btnGridFormat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGridFormat.Location = new System.Drawing.Point(609, 16);
-            this.btnGridFormat.Name = "btnGridFormat";
-            this.btnGridFormat.Size = new System.Drawing.Size(156, 20);
-            this.btnGridFormat.TabIndex = 40;
-            this.btnGridFormat.Text = "グリッド表示書式指定(&G)";
-            this.btnGridFormat.Click += new System.EventHandler(this.btnGridFormat_Click);
-            // 
-            // btnIndex
-            // 
-            this.btnIndex.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnIndex.Location = new System.Drawing.Point(337, 166);
-            this.btnIndex.Name = "btnIndex";
-            this.btnIndex.Size = new System.Drawing.Size(136, 23);
-            this.btnIndex.TabIndex = 29;
-            this.btnIndex.Text = "INDEX情報表示(&N)";
-            this.btnIndex.Click += new System.EventHandler(this.btnIndex_Click);
-            // 
-            // btnRedisp
-            // 
-            this.btnRedisp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRedisp.Location = new System.Drawing.Point(497, 40);
-            this.btnRedisp.Name = "btnRedisp";
-            this.btnRedisp.Size = new System.Drawing.Size(108, 20);
-            this.btnRedisp.TabIndex = 39;
-            this.btnRedisp.Text = "グリッド再描画(&L)";
-            this.btnRedisp.Click += new System.EventHandler(this.Redisp_Click);
-            // 
-            // btnTmpAllDisp
-            // 
-            this.btnTmpAllDisp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTmpAllDisp.Location = new System.Drawing.Point(609, 40);
-            this.btnTmpAllDisp.Name = "btnTmpAllDisp";
-            this.btnTmpAllDisp.Size = new System.Drawing.Size(156, 20);
-            this.btnTmpAllDisp.TabIndex = 41;
-            this.btnTmpAllDisp.Text = "一時的に全データを表示(&A)";
-            this.btnTmpAllDisp.Click += new System.EventHandler(this.btnTmpAllDisp_Click);
-            // 
-            // btnEtc
-            // 
-            this.btnEtc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEtc.Location = new System.Drawing.Point(337, 194);
-            this.btnEtc.Name = "btnEtc";
-            this.btnEtc.Size = new System.Drawing.Size(136, 23);
-            this.btnEtc.TabIndex = 30;
-            this.btnEtc.Text = "その他(&E)";
-            // 
-            // btnWhereZoom
-            // 
-            this.btnWhereZoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnWhereZoom.Location = new System.Drawing.Point(219, 314);
-            this.btnWhereZoom.Name = "btnWhereZoom";
-            this.btnWhereZoom.Size = new System.Drawing.Size(16, 20);
-            this.btnWhereZoom.TabIndex = 12;
-            this.btnWhereZoom.Click += new System.EventHandler(this.btnWhereZoom_Click);
-            // 
-            // btnOrderZoom
-            // 
-            this.btnOrderZoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOrderZoom.Location = new System.Drawing.Point(219, 342);
-            this.btnOrderZoom.Name = "btnOrderZoom";
-            this.btnOrderZoom.Size = new System.Drawing.Size(16, 20);
-            this.btnOrderZoom.TabIndex = 15;
-            this.btnOrderZoom.Click += new System.EventHandler(this.btnOrderZoom_Click);
-            // 
-            // labelObject
-            // 
-            this.labelObject.Location = new System.Drawing.Point(3, 6);
-            this.labelObject.Name = "labelObject";
-            this.labelObject.Size = new System.Drawing.Size(152, 16);
-            this.labelObject.TabIndex = 1;
-            this.labelObject.Text = "オブジェクト(&V)";
-            this.labelObject.DoubleClick += new System.EventHandler(this.labelObject_DoubleClick);
-            // 
-            // cmbHistory
-            // 
-            this.cmbHistory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbHistory.DropDownWidth = 300;
-            this.cmbHistory.Location = new System.Drawing.Point(80, 3);
-            this.cmbHistory.MaxDropDownItems = 11;
-            this.cmbHistory.Name = "cmbHistory";
-            this.cmbHistory.Size = new System.Drawing.Size(176, 20);
-            this.cmbHistory.TabIndex = 2;
-            this.cmbHistory.SelectionChangeCommitted += new System.EventHandler(this.cmbHistory_SelectionChangeCommitted);
-            // 
-            // label11
-            // 
-            this.label11.Location = new System.Drawing.Point(8, 370);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(60, 16);
-            this.label11.TabIndex = 16;
-            this.label11.Text = "Alias(&M)";
-            this.label11.DoubleClick += new System.EventHandler(this.label11_DoubleClick);
-            // 
-            // txtAlias
-            // 
-            this.txtAlias.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			// 
+			// fldmenuCopy
+			// 
+			this.fldmenuCopy.Index = 0;
+			this.fldmenuCopy.Text = "コピー";
+			this.fldmenuCopy.Click += new System.EventHandler(this.fldmenuCopy_Click);
+			// 
+			// fldmenuCopyNoCRLF
+			// 
+			this.fldmenuCopyNoCRLF.Index = 1;
+			this.fldmenuCopyNoCRLF.Text = "改行なしコピー";
+			this.fldmenuCopyNoCRLF.Click += new System.EventHandler(this.fldmenuCopyNoCRLF_Click);
+			// 
+			// fldmenuCopyNoComma
+			// 
+			this.fldmenuCopyNoComma.Index = 2;
+			this.fldmenuCopyNoComma.Text = "コピーカンマなし";
+			this.fldmenuCopyNoComma.Click += new System.EventHandler(this.fldmenuCopyNoComma_Click);
+			// 
+			// fldmenuCopyNoCRLFNoComma
+			// 
+			this.fldmenuCopyNoCRLFNoComma.Index = 3;
+			this.fldmenuCopyNoCRLFNoComma.Text = "コピー改行・カンマなし";
+			this.fldmenuCopyNoCRLFNoComma.Click += new System.EventHandler(this.fldmenuCopyNoCRLFNoComma_Click);
+			// 
+			// menuFieldAliasCopy
+			// 
+			this.menuFieldAliasCopy.Index = 4;
+			this.menuFieldAliasCopy.Text = "条件指定コピー";
+			this.menuFieldAliasCopy.Click += new System.EventHandler(this.menuFieldAliasCopy_Click);
+			// 
+			// menuFieldMakeWhere
+			// 
+			this.menuFieldMakeWhere.Index = 5;
+			this.menuFieldMakeWhere.Text = "where 句生成";
+			this.menuFieldMakeWhere.Click += new System.EventHandler(this.menuFieldMakeWhere_Click);
+			// 
+			// fldmenuMakePoco
+			// 
+			this.fldmenuMakePoco.Index = 6;
+			this.fldmenuMakePoco.Text = "Pocoクラス生成";
+			this.fldmenuMakePoco.Click += new System.EventHandler(this.fldmenuMakePoco_Click);
+			// 
+			// fldmenuMakePocoNoClass
+			// 
+			this.fldmenuMakePocoNoClass.Index = 7;
+			this.fldmenuMakePocoNoClass.Text = "Pocoクラス生成(クラス無し)";
+			this.fldmenuMakePocoNoClass.Click += new System.EventHandler(this.fldmenuMakePocoNoClass_Click);
+			// 
+			// label9
+			// 
+			this.label9.Location = new System.Drawing.Point(8, 48);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(280, 17);
+			this.label9.TabIndex = 37;
+			this.label9.Text = "複数行にわたる文字列はとき色(ピンク)に着色されます。";
+			this.commTooltip.SetToolTip(this.label9, "セル背景色: 水色 ⇒ NULL値 : とき色(ピンク) ⇒ 複数行にわたる文字列 : コバルトグリーン ⇒ バイナリデータ");
+			// 
+			// label7
+			// 
+			this.label7.Location = new System.Drawing.Point(8, 9);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(368, 17);
+			this.label7.TabIndex = 35;
+			this.label7.Text = "見出しに★がある列はNULL可です。NULLのセルは水色に着色されます。";
+			this.commTooltip.SetToolTip(this.label7, "セル背景色: 水色 ⇒ NULL値 : とき色(ピンク) ⇒ 複数行にわたる文字列 : コバルトグリーン ⇒ バイナリデータ");
+			// 
+			// label8
+			// 
+			this.label8.Location = new System.Drawing.Point(8, 26);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(500, 17);
+			this.label8.TabIndex = 36;
+			this.label8.Text = "NULLを入力するにはCtrl+1 を、空文字列を入力するにはCtrl+2を押下します。Ctrl+3で値拡大表示。";
+			this.commTooltip.SetToolTip(this.label8, "セル背景色: 水色 ⇒ NULL値 : とき色(ピンク) ⇒ 複数行にわたる文字列 : コバルトグリーン ⇒ バイナリデータ");
+			// 
+			// grpCharaSet
+			// 
+			this.grpCharaSet.Controls.Add(this.rdoUtf8);
+			this.grpCharaSet.Controls.Add(this.rdoSjis);
+			this.grpCharaSet.Controls.Add(this.rdoUnicode);
+			this.grpCharaSet.Location = new System.Drawing.Point(8, 264);
+			this.grpCharaSet.Name = "grpCharaSet";
+			this.grpCharaSet.Size = new System.Drawing.Size(216, 65);
+			this.grpCharaSet.TabIndex = 9;
+			this.grpCharaSet.TabStop = false;
+			this.grpCharaSet.Text = "出力文字コード";
+			// 
+			// rdoUtf8
+			// 
+			this.rdoUtf8.Location = new System.Drawing.Point(8, 39);
+			this.rdoUtf8.Name = "rdoUtf8";
+			this.rdoUtf8.Size = new System.Drawing.Size(80, 17);
+			this.rdoUtf8.TabIndex = 2;
+			this.rdoUtf8.Text = "UTF-8";
+			this.rdoUtf8.CheckedChanged += new System.EventHandler(this.rdoUtf8_CheckedChanged);
+			// 
+			// rdoSjis
+			// 
+			this.rdoSjis.Location = new System.Drawing.Point(104, 17);
+			this.rdoSjis.Name = "rdoSjis";
+			this.rdoSjis.Size = new System.Drawing.Size(80, 18);
+			this.rdoSjis.TabIndex = 1;
+			this.rdoSjis.Text = "ShiftJIS";
+			this.rdoSjis.CheckedChanged += new System.EventHandler(this.rdoSjis_CheckedChanged);
+			// 
+			// rdoUnicode
+			// 
+			this.rdoUnicode.Location = new System.Drawing.Point(8, 17);
+			this.rdoUnicode.Name = "rdoUnicode";
+			this.rdoUnicode.Size = new System.Drawing.Size(92, 18);
+			this.rdoUnicode.TabIndex = 0;
+			this.rdoUnicode.Text = "UNICODE";
+			this.rdoUnicode.CheckedChanged += new System.EventHandler(this.rdoUnicode_CheckedChanged);
+			// 
+			// chkDispFieldAttr
+			// 
+			this.chkDispFieldAttr.Location = new System.Drawing.Point(3, 7);
+			this.chkDispFieldAttr.Name = "chkDispFieldAttr";
+			this.chkDispFieldAttr.Size = new System.Drawing.Size(161, 21);
+			this.chkDispFieldAttr.TabIndex = 34;
+			this.chkDispFieldAttr.Text = "フィールド属性を表示(&Z)";
+			this.chkDispFieldAttr.CheckedChanged += new System.EventHandler(this.chkDispFieldAttr_CheckedChanged);
+			// 
+			// btnQuerySelect
+			// 
+			this.btnQuerySelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnQuerySelect.Location = new System.Drawing.Point(269, 241);
+			this.btnQuerySelect.Name = "btnQuerySelect";
+			this.btnQuerySelect.Size = new System.Drawing.Size(136, 26);
+			this.btnQuerySelect.TabIndex = 31;
+			this.btnQuerySelect.Text = "クエリ指定結果表示(&J)";
+			this.btnQuerySelect.Click += new System.EventHandler(this.btnQuerySelect_Click);
+			// 
+			// btnDataUpdate
+			// 
+			this.btnDataUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnDataUpdate.Location = new System.Drawing.Point(269, 310);
+			this.btnDataUpdate.Name = "btnDataUpdate";
+			this.btnDataUpdate.Size = new System.Drawing.Size(132, 26);
+			this.btnDataUpdate.TabIndex = 33;
+			this.btnDataUpdate.Text = "データ更新(&U)";
+			this.btnDataUpdate.Click += new System.EventHandler(this.btnDataUpdate_Click);
+			// 
+			// btnDataEdit
+			// 
+			this.btnDataEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnDataEdit.Location = new System.Drawing.Point(269, 280);
+			this.btnDataEdit.Name = "btnDataEdit";
+			this.btnDataEdit.Size = new System.Drawing.Size(132, 26);
+			this.btnDataEdit.TabIndex = 32;
+			this.btnDataEdit.Text = "データ編集(&T)";
+			this.btnDataEdit.Click += new System.EventHandler(this.btnDataEdit_Click);
+			// 
+			// btnGridFormat
+			// 
+			this.btnGridFormat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnGridFormat.Location = new System.Drawing.Point(609, 17);
+			this.btnGridFormat.Name = "btnGridFormat";
+			this.btnGridFormat.Size = new System.Drawing.Size(156, 22);
+			this.btnGridFormat.TabIndex = 40;
+			this.btnGridFormat.Text = "グリッド表示書式指定(&G)";
+			this.btnGridFormat.Click += new System.EventHandler(this.btnGridFormat_Click);
+			// 
+			// btnIndex
+			// 
+			this.btnIndex.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnIndex.Location = new System.Drawing.Point(269, 180);
+			this.btnIndex.Name = "btnIndex";
+			this.btnIndex.Size = new System.Drawing.Size(136, 25);
+			this.btnIndex.TabIndex = 29;
+			this.btnIndex.Text = "INDEX情報表示(&N)";
+			this.btnIndex.Click += new System.EventHandler(this.btnIndex_Click);
+			// 
+			// btnRedisp
+			// 
+			this.btnRedisp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnRedisp.Location = new System.Drawing.Point(497, 43);
+			this.btnRedisp.Name = "btnRedisp";
+			this.btnRedisp.Size = new System.Drawing.Size(108, 22);
+			this.btnRedisp.TabIndex = 39;
+			this.btnRedisp.Text = "グリッド再描画(&L)";
+			this.btnRedisp.Click += new System.EventHandler(this.Redisp_Click);
+			// 
+			// btnTmpAllDisp
+			// 
+			this.btnTmpAllDisp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnTmpAllDisp.Location = new System.Drawing.Point(609, 43);
+			this.btnTmpAllDisp.Name = "btnTmpAllDisp";
+			this.btnTmpAllDisp.Size = new System.Drawing.Size(156, 22);
+			this.btnTmpAllDisp.TabIndex = 41;
+			this.btnTmpAllDisp.Text = "一時的に全データを表示(&A)";
+			this.btnTmpAllDisp.Click += new System.EventHandler(this.btnTmpAllDisp_Click);
+			// 
+			// btnEtc
+			// 
+			this.btnEtc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnEtc.Location = new System.Drawing.Point(269, 210);
+			this.btnEtc.Name = "btnEtc";
+			this.btnEtc.Size = new System.Drawing.Size(136, 25);
+			this.btnEtc.TabIndex = 30;
+			this.btnEtc.Text = "その他(&E)";
+			// 
+			// btnWhereZoom
+			// 
+			this.btnWhereZoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnWhereZoom.Location = new System.Drawing.Point(219, 340);
+			this.btnWhereZoom.Name = "btnWhereZoom";
+			this.btnWhereZoom.Size = new System.Drawing.Size(16, 22);
+			this.btnWhereZoom.TabIndex = 12;
+			this.btnWhereZoom.Click += new System.EventHandler(this.btnWhereZoom_Click);
+			// 
+			// btnOrderZoom
+			// 
+			this.btnOrderZoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnOrderZoom.Location = new System.Drawing.Point(219, 371);
+			this.btnOrderZoom.Name = "btnOrderZoom";
+			this.btnOrderZoom.Size = new System.Drawing.Size(16, 21);
+			this.btnOrderZoom.TabIndex = 15;
+			this.btnOrderZoom.Click += new System.EventHandler(this.btnOrderZoom_Click);
+			// 
+			// labelObject
+			// 
+			this.labelObject.Location = new System.Drawing.Point(3, 7);
+			this.labelObject.Name = "labelObject";
+			this.labelObject.Size = new System.Drawing.Size(152, 17);
+			this.labelObject.TabIndex = 1;
+			this.labelObject.Text = "オブジェクト(&V)";
+			this.labelObject.DoubleClick += new System.EventHandler(this.labelObject_DoubleClick);
+			// 
+			// cmbHistory
+			// 
+			this.cmbHistory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cmbHistory.DropDownWidth = 300;
+			this.cmbHistory.Location = new System.Drawing.Point(80, 3);
+			this.cmbHistory.MaxDropDownItems = 11;
+			this.cmbHistory.Name = "cmbHistory";
+			this.cmbHistory.Size = new System.Drawing.Size(176, 21);
+			this.cmbHistory.TabIndex = 2;
+			this.cmbHistory.SelectionChangeCommitted += new System.EventHandler(this.cmbHistory_SelectionChangeCommitted);
+			// 
+			// label11
+			// 
+			this.label11.Location = new System.Drawing.Point(8, 401);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(60, 17);
+			this.label11.TabIndex = 16;
+			this.label11.Text = "Alias(&M)";
+			this.label11.DoubleClick += new System.EventHandler(this.label11_DoubleClick);
+			// 
+			// txtAlias
+			// 
+			this.txtAlias.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAlias.CanCtrlDelete = true;
-            this.txtAlias.Histories = null;
-            this.txtAlias.HistoryKey = "txtAlias";
-            this.txtAlias.IsDigitOnly = false;
-            this.txtAlias.IsShowZoom = true;
-            this.txtAlias.Location = new System.Drawing.Point(72, 366);
-            this.txtAlias.Name = "txtAlias";
-            this.txtAlias.Size = new System.Drawing.Size(165, 19);
-            this.txtAlias.TabIndex = 17;
-            this.commTooltip.SetToolTip(this.txtAlias, "選択したオブジェクトに別名(Alias)をつけることができます");
-            this.txtAlias.ShowHistory += new quickDBExplorer.ShowHistoryEventHandler(this.txtAlias_ShowHistory);
-            this.txtAlias.ShowZoom += new quickDBExplorer.ShowZoomEventHandler(this.txtAlias_ShowZoom);
-            this.txtAlias.Enter += new System.EventHandler(this.txtAlias_Enter);
-            this.txtAlias.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAlias_KeyDown);
-            this.txtAlias.Leave += new System.EventHandler(this.txtAlias_Leave);
-            // 
-            // ObjFieldSplitter
-            // 
-            this.ObjFieldSplitter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.ObjFieldSplitter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ObjFieldSplitter.Location = new System.Drawing.Point(0, 0);
-            this.ObjFieldSplitter.Name = "ObjFieldSplitter";
-            // 
-            // ObjFieldSplitter.Panel1
-            // 
-            this.ObjFieldSplitter.Panel1.AutoScroll = true;
-            this.ObjFieldSplitter.Panel1.Controls.Add(this.labelFilter);
-            this.ObjFieldSplitter.Panel1.Controls.Add(this.cmbHistory);
-            this.ObjFieldSplitter.Panel1.Controls.Add(this.txtObjFilter);
-            this.ObjFieldSplitter.Panel1.Controls.Add(this.labelObject);
-            this.ObjFieldSplitter.Panel1.Controls.Add(this.objectList);
-            this.ObjFieldSplitter.Panel1.Controls.Add(this.btnInsert);
-            this.ObjFieldSplitter.Panel1.Controls.Add(this.btnFieldList);
-            this.ObjFieldSplitter.Panel1.Controls.Add(this.btnCSV);
-            this.ObjFieldSplitter.Panel1.Controls.Add(this.btnEtc);
-            this.ObjFieldSplitter.Panel1.Controls.Add(this.btnSelect);
-            this.ObjFieldSplitter.Panel1.Controls.Add(this.btnDDL);
-            this.ObjFieldSplitter.Panel1.Controls.Add(this.btnQuerySelect);
-            this.ObjFieldSplitter.Panel1.Controls.Add(this.btnIndex);
-            this.ObjFieldSplitter.Panel1.Controls.Add(this.btnDataUpdate);
-            this.ObjFieldSplitter.Panel1.Controls.Add(this.btnDataEdit);
-            // 
-            // ObjFieldSplitter.Panel2
-            // 
-            this.ObjFieldSplitter.Panel2.AutoScroll = true;
-            this.ObjFieldSplitter.Panel2.Controls.Add(this.chkDispFieldAttr);
-            this.ObjFieldSplitter.Panel2.Controls.Add(this.fieldListbox);
-            this.ObjFieldSplitter.Size = new System.Drawing.Size(779, 340);
-            this.ObjFieldSplitter.SplitterDistance = 480;
-            this.ObjFieldSplitter.SplitterWidth = 2;
-            this.ObjFieldSplitter.TabIndex = 19;
-            // 
-            // labelFilter
-            // 
-            this.labelFilter.AutoSize = true;
-            this.labelFilter.Location = new System.Drawing.Point(262, 9);
-            this.labelFilter.Name = "labelFilter";
-            this.labelFilter.Size = new System.Drawing.Size(54, 12);
-            this.labelFilter.TabIndex = 3;
-            this.labelFilter.Text = "フィルタ(&A)";
-            this.labelFilter.MouseClick += new System.Windows.Forms.MouseEventHandler(this.labelFilter_MouseClick);
-            // 
-            // txtObjFilter
-            // 
-            this.txtObjFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			this.txtAlias.CanCtrlDelete = true;
+			this.txtAlias.Histories = null;
+			this.txtAlias.HistoryKey = "txtAlias";
+			this.txtAlias.IsDigitOnly = false;
+			this.txtAlias.IsShowZoom = true;
+			this.txtAlias.Location = new System.Drawing.Point(72, 397);
+			this.txtAlias.Name = "txtAlias";
+			this.txtAlias.Size = new System.Drawing.Size(165, 20);
+			this.txtAlias.TabIndex = 17;
+			this.commTooltip.SetToolTip(this.txtAlias, "選択したオブジェクトに別名(Alias)をつけることができます");
+			this.txtAlias.ShowHistory += new quickDBExplorer.ShowHistoryEventHandler(this.txtAlias_ShowHistory);
+			this.txtAlias.ShowZoom += new quickDBExplorer.ShowZoomEventHandler(this.txtAlias_ShowZoom);
+			this.txtAlias.Enter += new System.EventHandler(this.txtAlias_Enter);
+			this.txtAlias.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAlias_KeyDown);
+			this.txtAlias.Leave += new System.EventHandler(this.txtAlias_Leave);
+			// 
+			// ObjFieldSplitter
+			// 
+			this.ObjFieldSplitter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.ObjFieldSplitter.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.ObjFieldSplitter.Location = new System.Drawing.Point(0, 0);
+			this.ObjFieldSplitter.Name = "ObjFieldSplitter";
+			// 
+			// ObjFieldSplitter.Panel1
+			// 
+			this.ObjFieldSplitter.Panel1.AutoScroll = true;
+			this.ObjFieldSplitter.Panel1.Controls.Add(this.labelFilter);
+			this.ObjFieldSplitter.Panel1.Controls.Add(this.cmbHistory);
+			this.ObjFieldSplitter.Panel1.Controls.Add(this.txtObjFilter);
+			this.ObjFieldSplitter.Panel1.Controls.Add(this.labelObject);
+			this.ObjFieldSplitter.Panel1.Controls.Add(this.objectList);
+			this.ObjFieldSplitter.Panel1.Controls.Add(this.btnInsert);
+			this.ObjFieldSplitter.Panel1.Controls.Add(this.btnFieldList);
+			this.ObjFieldSplitter.Panel1.Controls.Add(this.btnCSV);
+			this.ObjFieldSplitter.Panel1.Controls.Add(this.btnEtc);
+			this.ObjFieldSplitter.Panel1.Controls.Add(this.btnSelect);
+			this.ObjFieldSplitter.Panel1.Controls.Add(this.btnDDL);
+			this.ObjFieldSplitter.Panel1.Controls.Add(this.btnQuerySelect);
+			this.ObjFieldSplitter.Panel1.Controls.Add(this.btnIndex);
+			this.ObjFieldSplitter.Panel1.Controls.Add(this.btnDataUpdate);
+			this.ObjFieldSplitter.Panel1.Controls.Add(this.btnDataEdit);
+			// 
+			// ObjFieldSplitter.Panel2
+			// 
+			this.ObjFieldSplitter.Panel2.AutoScroll = true;
+			this.ObjFieldSplitter.Panel2.Controls.Add(this.chkDispFieldAttr);
+			this.ObjFieldSplitter.Panel2.Controls.Add(this.fieldListbox);
+			this.ObjFieldSplitter.Size = new System.Drawing.Size(779, 339);
+			this.ObjFieldSplitter.SplitterDistance = 480;
+			this.ObjFieldSplitter.SplitterWidth = 2;
+			this.ObjFieldSplitter.TabIndex = 19;
+			// 
+			// labelFilter
+			// 
+			this.labelFilter.AutoSize = true;
+			this.labelFilter.Location = new System.Drawing.Point(262, 10);
+			this.labelFilter.Name = "labelFilter";
+			this.labelFilter.Size = new System.Drawing.Size(53, 13);
+			this.labelFilter.TabIndex = 3;
+			this.labelFilter.Text = "フィルタ(&A)";
+			this.labelFilter.MouseClick += new System.Windows.Forms.MouseEventHandler(this.labelFilter_MouseClick);
+			// 
+			// txtObjFilter
+			// 
+			this.txtObjFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtObjFilter.CanCtrlDelete = true;
-            this.txtObjFilter.Histories = null;
-            this.txtObjFilter.HistoryKey = "txtObjFilter";
-            this.txtObjFilter.IsDigitOnly = false;
-            this.txtObjFilter.IsShowZoom = false;
-            this.txtObjFilter.Location = new System.Drawing.Point(319, 3);
-            this.txtObjFilter.Name = "txtObjFilter";
-            this.txtObjFilter.Size = new System.Drawing.Size(153, 19);
-            this.txtObjFilter.TabIndex = 22;
-            this.txtObjFilter.ShowHistory += new quickDBExplorer.ShowHistoryEventHandler(this.txtObjFilter_ShowHistory);
-            this.txtObjFilter.TextChanged += new System.EventHandler(this.txtObjFilter_TextChanged);
-            this.txtObjFilter.Leave += new System.EventHandler(this.txtObjFilter_Leave);
-            // 
-            // MainSplitter
-            // 
-            this.MainSplitter.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.txtObjFilter.CanCtrlDelete = true;
+			this.txtObjFilter.Histories = null;
+			this.txtObjFilter.HistoryKey = "txtObjFilter";
+			this.txtObjFilter.IsDigitOnly = false;
+			this.txtObjFilter.IsShowZoom = false;
+			this.txtObjFilter.Location = new System.Drawing.Point(319, 3);
+			this.txtObjFilter.Name = "txtObjFilter";
+			this.txtObjFilter.Size = new System.Drawing.Size(85, 20);
+			this.txtObjFilter.TabIndex = 22;
+			this.txtObjFilter.ShowHistory += new quickDBExplorer.ShowHistoryEventHandler(this.txtObjFilter_ShowHistory);
+			this.txtObjFilter.TextChanged += new System.EventHandler(this.txtObjFilter_TextChanged);
+			this.txtObjFilter.Leave += new System.EventHandler(this.txtObjFilter_Leave);
+			// 
+			// MainSplitter
+			// 
+			this.MainSplitter.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.MainSplitter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.MainSplitter.Location = new System.Drawing.Point(0, 0);
-            this.MainSplitter.Name = "MainSplitter";
-            // 
-            // MainSplitter.Panel1
-            // 
-            this.MainSplitter.Panel1.AutoScroll = true;
-            this.MainSplitter.Panel1.Controls.Add(this.conditionSplitter);
-            // 
-            // MainSplitter.Panel2
-            // 
-            this.MainSplitter.Panel2.Controls.Add(this.UpDownSplitter);
-            this.MainSplitter.Size = new System.Drawing.Size(1032, 660);
-            this.MainSplitter.SplitterDistance = 251;
-            this.MainSplitter.SplitterWidth = 2;
-            this.MainSplitter.TabIndex = 0;
-            // 
-            // conditionSplitter
-            // 
-            this.conditionSplitter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.conditionSplitter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.conditionSplitter.Location = new System.Drawing.Point(0, 0);
-            this.conditionSplitter.Name = "conditionSplitter";
-            this.conditionSplitter.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // conditionSplitter.Panel1
-            // 
-            this.conditionSplitter.Panel1.Controls.Add(this.dbList);
-            this.conditionSplitter.Panel1.Controls.Add(this.labelDB);
-            // 
-            // conditionSplitter.Panel2
-            // 
-            this.conditionSplitter.Panel2.Controls.Add(this.conditionSplitter2);
-            this.conditionSplitter.Size = new System.Drawing.Size(251, 660);
-            this.conditionSplitter.SplitterDistance = 84;
-            this.conditionSplitter.SplitterWidth = 2;
-            this.conditionSplitter.TabIndex = 0;
-            // 
-            // conditionSplitter2
-            // 
-            this.conditionSplitter2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.conditionSplitter2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.conditionSplitter2.Location = new System.Drawing.Point(0, 0);
-            this.conditionSplitter2.Name = "conditionSplitter2";
-            this.conditionSplitter2.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // conditionSplitter2.Panel1
-            // 
-            this.conditionSplitter2.Panel1.Controls.Add(this.labelSchema);
-            this.conditionSplitter2.Panel1.Controls.Add(this.ownerListbox);
-            // 
-            // conditionSplitter2.Panel2
-            // 
-            this.conditionSplitter2.Panel2.AutoScroll = true;
-            this.conditionSplitter2.Panel2.Controls.Add(this.txtAlias);
-            this.conditionSplitter2.Panel2.Controls.Add(this.label11);
-            this.conditionSplitter2.Panel2.Controls.Add(this.btnOrderZoom);
-            this.conditionSplitter2.Panel2.Controls.Add(this.btnWhereZoom);
-            this.conditionSplitter2.Panel2.Controls.Add(this.grpDataDispMode);
-            this.conditionSplitter2.Panel2.Controls.Add(this.grpSysUserMode);
-            this.conditionSplitter2.Panel2.Controls.Add(this.grpViewMode);
-            this.conditionSplitter2.Panel2.Controls.Add(this.grpSortMode);
-            this.conditionSplitter2.Panel2.Controls.Add(this.txtWhere);
-            this.conditionSplitter2.Panel2.Controls.Add(this.txtSort);
-            this.conditionSplitter2.Panel2.Controls.Add(this.grpCharaSet);
-            this.conditionSplitter2.Panel2.Controls.Add(this.label1);
-            this.conditionSplitter2.Panel2.Controls.Add(this.label2);
-            this.conditionSplitter2.Panel2.Controls.Add(this.grpOutputMode);
-            this.conditionSplitter2.Size = new System.Drawing.Size(251, 574);
-            this.conditionSplitter2.SplitterDistance = 82;
-            this.conditionSplitter2.SplitterWidth = 2;
-            this.conditionSplitter2.TabIndex = 0;
-            // 
-            // UpDownSplitter
-            // 
-            this.UpDownSplitter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.UpDownSplitter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UpDownSplitter.Location = new System.Drawing.Point(0, 0);
-            this.UpDownSplitter.Name = "UpDownSplitter";
-            this.UpDownSplitter.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // UpDownSplitter.Panel1
-            // 
-            this.UpDownSplitter.Panel1.AutoScroll = true;
-            this.UpDownSplitter.Panel1.Controls.Add(this.ObjFieldSplitter);
-            // 
-            // UpDownSplitter.Panel2
-            // 
-            this.UpDownSplitter.Panel2.AutoScroll = true;
-            this.UpDownSplitter.Panel2.Controls.Add(this.btnResetWidth);
-            this.UpDownSplitter.Panel2.Controls.Add(this.dbGrid);
-            this.UpDownSplitter.Panel2.Controls.Add(this.label9);
-            this.UpDownSplitter.Panel2.Controls.Add(this.btnGridFormat);
-            this.UpDownSplitter.Panel2.Controls.Add(this.label8);
-            this.UpDownSplitter.Panel2.Controls.Add(this.btnRedisp);
-            this.UpDownSplitter.Panel2.Controls.Add(this.label7);
-            this.UpDownSplitter.Panel2.Controls.Add(this.btnTmpAllDisp);
-            this.UpDownSplitter.Size = new System.Drawing.Size(779, 660);
-            this.UpDownSplitter.SplitterDistance = 340;
-            this.UpDownSplitter.SplitterWidth = 2;
-            this.UpDownSplitter.TabIndex = 0;
-            // 
-            // btnResetWidth
-            // 
-            this.btnResetWidth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnResetWidth.Location = new System.Drawing.Point(383, 40);
-            this.btnResetWidth.Name = "btnResetWidth";
-            this.btnResetWidth.Size = new System.Drawing.Size(108, 20);
-            this.btnResetWidth.TabIndex = 38;
-            this.btnResetWidth.Text = "列幅初期化(&M)";
-            this.btnResetWidth.Click += new System.EventHandler(this.btnResetWidth_Click);
-            // 
-            // dbMenu
-            // 
-            this.dbMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.MainSplitter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.MainSplitter.Location = new System.Drawing.Point(0, 0);
+			this.MainSplitter.Name = "MainSplitter";
+			// 
+			// MainSplitter.Panel1
+			// 
+			this.MainSplitter.Panel1.AutoScroll = true;
+			this.MainSplitter.Panel1.Controls.Add(this.conditionSplitter);
+			// 
+			// MainSplitter.Panel2
+			// 
+			this.MainSplitter.Panel2.Controls.Add(this.UpDownSplitter);
+			this.MainSplitter.Size = new System.Drawing.Size(1032, 659);
+			this.MainSplitter.SplitterDistance = 251;
+			this.MainSplitter.SplitterWidth = 2;
+			this.MainSplitter.TabIndex = 0;
+			// 
+			// conditionSplitter
+			// 
+			this.conditionSplitter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.conditionSplitter.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.conditionSplitter.Location = new System.Drawing.Point(0, 0);
+			this.conditionSplitter.Name = "conditionSplitter";
+			this.conditionSplitter.Orientation = System.Windows.Forms.Orientation.Horizontal;
+			// 
+			// conditionSplitter.Panel1
+			// 
+			this.conditionSplitter.Panel1.Controls.Add(this.txtFilterDB);
+			this.conditionSplitter.Panel1.Controls.Add(this.dbList);
+			this.conditionSplitter.Panel1.Controls.Add(this.labelDB);
+			// 
+			// conditionSplitter.Panel2
+			// 
+			this.conditionSplitter.Panel2.Controls.Add(this.conditionSplitter2);
+			this.conditionSplitter.Size = new System.Drawing.Size(251, 659);
+			this.conditionSplitter.SplitterDistance = 83;
+			this.conditionSplitter.SplitterWidth = 2;
+			this.conditionSplitter.TabIndex = 0;
+			// 
+			// txtFilterDB
+			// 
+			this.txtFilterDB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.txtFilterDB.Location = new System.Drawing.Point(60, 1);
+			this.txtFilterDB.Name = "txtFilterDB";
+			this.txtFilterDB.Size = new System.Drawing.Size(184, 20);
+			this.txtFilterDB.TabIndex = 2;
+			this.txtFilterDB.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFilterDB_KeyUp);
+			// 
+			// conditionSplitter2
+			// 
+			this.conditionSplitter2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.conditionSplitter2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.conditionSplitter2.Location = new System.Drawing.Point(0, 0);
+			this.conditionSplitter2.Name = "conditionSplitter2";
+			this.conditionSplitter2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+			// 
+			// conditionSplitter2.Panel1
+			// 
+			this.conditionSplitter2.Panel1.Controls.Add(this.txtFilterSchema);
+			this.conditionSplitter2.Panel1.Controls.Add(this.labelSchema);
+			this.conditionSplitter2.Panel1.Controls.Add(this.ownerListbox);
+			// 
+			// conditionSplitter2.Panel2
+			// 
+			this.conditionSplitter2.Panel2.AutoScroll = true;
+			this.conditionSplitter2.Panel2.Controls.Add(this.txtAlias);
+			this.conditionSplitter2.Panel2.Controls.Add(this.label11);
+			this.conditionSplitter2.Panel2.Controls.Add(this.btnOrderZoom);
+			this.conditionSplitter2.Panel2.Controls.Add(this.btnWhereZoom);
+			this.conditionSplitter2.Panel2.Controls.Add(this.grpDataDispMode);
+			this.conditionSplitter2.Panel2.Controls.Add(this.grpSysUserMode);
+			this.conditionSplitter2.Panel2.Controls.Add(this.grpViewMode);
+			this.conditionSplitter2.Panel2.Controls.Add(this.grpSortMode);
+			this.conditionSplitter2.Panel2.Controls.Add(this.txtWhere);
+			this.conditionSplitter2.Panel2.Controls.Add(this.txtSort);
+			this.conditionSplitter2.Panel2.Controls.Add(this.grpCharaSet);
+			this.conditionSplitter2.Panel2.Controls.Add(this.label1);
+			this.conditionSplitter2.Panel2.Controls.Add(this.label2);
+			this.conditionSplitter2.Panel2.Controls.Add(this.grpOutputMode);
+			this.conditionSplitter2.Size = new System.Drawing.Size(251, 574);
+			this.conditionSplitter2.SplitterDistance = 82;
+			this.conditionSplitter2.SplitterWidth = 2;
+			this.conditionSplitter2.TabIndex = 0;
+			// 
+			// txtFilterSchema
+			// 
+			this.txtFilterSchema.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.txtFilterSchema.Location = new System.Drawing.Point(60, 4);
+			this.txtFilterSchema.Name = "txtFilterSchema";
+			this.txtFilterSchema.Size = new System.Drawing.Size(184, 20);
+			this.txtFilterSchema.TabIndex = 2;
+			this.txtFilterSchema.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFilterSchema_KeyUp);
+			// 
+			// UpDownSplitter
+			// 
+			this.UpDownSplitter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.UpDownSplitter.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.UpDownSplitter.Location = new System.Drawing.Point(0, 0);
+			this.UpDownSplitter.Name = "UpDownSplitter";
+			this.UpDownSplitter.Orientation = System.Windows.Forms.Orientation.Horizontal;
+			// 
+			// UpDownSplitter.Panel1
+			// 
+			this.UpDownSplitter.Panel1.AutoScroll = true;
+			this.UpDownSplitter.Panel1.Controls.Add(this.ObjFieldSplitter);
+			// 
+			// UpDownSplitter.Panel2
+			// 
+			this.UpDownSplitter.Panel2.AutoScroll = true;
+			this.UpDownSplitter.Panel2.Controls.Add(this.btnResetWidth);
+			this.UpDownSplitter.Panel2.Controls.Add(this.dbGrid);
+			this.UpDownSplitter.Panel2.Controls.Add(this.label9);
+			this.UpDownSplitter.Panel2.Controls.Add(this.btnGridFormat);
+			this.UpDownSplitter.Panel2.Controls.Add(this.label8);
+			this.UpDownSplitter.Panel2.Controls.Add(this.btnRedisp);
+			this.UpDownSplitter.Panel2.Controls.Add(this.label7);
+			this.UpDownSplitter.Panel2.Controls.Add(this.btnTmpAllDisp);
+			this.UpDownSplitter.Size = new System.Drawing.Size(779, 659);
+			this.UpDownSplitter.SplitterDistance = 339;
+			this.UpDownSplitter.SplitterWidth = 2;
+			this.UpDownSplitter.TabIndex = 0;
+			// 
+			// btnResetWidth
+			// 
+			this.btnResetWidth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnResetWidth.Location = new System.Drawing.Point(383, 43);
+			this.btnResetWidth.Name = "btnResetWidth";
+			this.btnResetWidth.Size = new System.Drawing.Size(108, 22);
+			this.btnResetWidth.TabIndex = 38;
+			this.btnResetWidth.Text = "列幅初期化(&M)";
+			this.btnResetWidth.Click += new System.EventHandler(this.btnResetWidth_Click);
+			// 
+			// dbMenu
+			// 
+			this.dbMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuTimeoutChange,
             this.DBReloadMenu});
-            this.dbMenu.Name = "dbMenu";
-            this.dbMenu.Size = new System.Drawing.Size(164, 48);
-            // 
-            // menuTimeoutChange
-            // 
-            this.menuTimeoutChange.Name = "menuTimeoutChange";
-            this.menuTimeoutChange.Size = new System.Drawing.Size(163, 22);
-            this.menuTimeoutChange.Text = "タイムアウト変更(&t)";
-            this.menuTimeoutChange.Click += new System.EventHandler(this.menuTimeoutChange_Click);
-            // 
-            // DBReloadMenu
-            // 
-            this.DBReloadMenu.Name = "DBReloadMenu";
-            this.DBReloadMenu.Size = new System.Drawing.Size(163, 22);
-            this.DBReloadMenu.Text = "DB再読み込み(&R)";
-            this.DBReloadMenu.Click += new System.EventHandler(this.DBReloadMenu_Click);
-            // 
-            // filterMenu
-            // 
-            this.filterMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.dbMenu.Name = "dbMenu";
+			this.dbMenu.Size = new System.Drawing.Size(171, 48);
+			// 
+			// menuTimeoutChange
+			// 
+			this.menuTimeoutChange.Name = "menuTimeoutChange";
+			this.menuTimeoutChange.Size = new System.Drawing.Size(170, 22);
+			this.menuTimeoutChange.Text = "タイムアウト変更(&t)";
+			this.menuTimeoutChange.Click += new System.EventHandler(this.menuTimeoutChange_Click);
+			// 
+			// DBReloadMenu
+			// 
+			this.DBReloadMenu.Name = "DBReloadMenu";
+			this.DBReloadMenu.Size = new System.Drawing.Size(170, 22);
+			this.DBReloadMenu.Text = "DB再読み込み(&R)";
+			this.DBReloadMenu.Click += new System.EventHandler(this.DBReloadMenu_Click);
+			// 
+			// filterMenu
+			// 
+			this.filterMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.filterClear,
             this.filterCS,
             this.filterNonCS});
-            this.filterMenu.Name = "filterMenu";
-            this.filterMenu.Size = new System.Drawing.Size(214, 70);
-            // 
-            // filterClear
-            // 
-            this.filterClear.Name = "filterClear";
-            this.filterClear.Size = new System.Drawing.Size(213, 22);
-            this.filterClear.Text = "フィルター値をクリア";
-            this.filterClear.Click += new System.EventHandler(this.filterClear_Click);
-            // 
-            // filterCS
-            // 
-            this.filterCS.Name = "filterCS";
-            this.filterCS.Size = new System.Drawing.Size(213, 22);
-            this.filterCS.Text = "大文字・小文字を区別する";
-            this.filterCS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.filterCS.Click += new System.EventHandler(this.filterCS_Click);
-            // 
-            // filterNonCS
-            // 
-            this.filterNonCS.Name = "filterNonCS";
-            this.filterNonCS.Size = new System.Drawing.Size(213, 22);
-            this.filterNonCS.Text = "大文字・小文字を区別しない";
-            this.filterNonCS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.filterNonCS.Click += new System.EventHandler(this.filterNonCS_Click);
-            // 
-            // MainForm
-            // 
-            this.AutoScaleBaseSize = new System.Drawing.Size(5, 12);
-            this.AutoScroll = true;
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1033, 677);
-            this.Controls.Add(this.MainSplitter);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "MainForm";
-            this.ShowInTaskbar = false;
-            this.Text = "Database選択";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Closing += new System.ComponentModel.CancelEventHandler(this.MainForm_Closing);
-            this.Load += new System.EventHandler(this.MainForm_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
-            this.Controls.SetChildIndex(this.MsgArea, 0);
-            this.Controls.SetChildIndex(this.MainSplitter, 0);
-            this.grpViewMode.ResumeLayout(false);
-            this.grpSortMode.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dbGrid)).EndInit();
-            this.grpDataDispMode.ResumeLayout(false);
-            this.grpDataDispMode.PerformLayout();
-            this.grpSysUserMode.ResumeLayout(false);
-            this.grpOutputMode.ResumeLayout(false);
-            this.grpOutputMode.PerformLayout();
-            this.grpCharaSet.ResumeLayout(false);
-            this.ObjFieldSplitter.Panel1.ResumeLayout(false);
-            this.ObjFieldSplitter.Panel1.PerformLayout();
-            this.ObjFieldSplitter.Panel2.ResumeLayout(false);
-            this.ObjFieldSplitter.ResumeLayout(false);
-            this.MainSplitter.Panel1.ResumeLayout(false);
-            this.MainSplitter.Panel2.ResumeLayout(false);
-            this.MainSplitter.ResumeLayout(false);
-            this.conditionSplitter.Panel1.ResumeLayout(false);
-            this.conditionSplitter.Panel2.ResumeLayout(false);
-            this.conditionSplitter.ResumeLayout(false);
-            this.conditionSplitter2.Panel1.ResumeLayout(false);
-            this.conditionSplitter2.Panel2.ResumeLayout(false);
-            this.conditionSplitter2.Panel2.PerformLayout();
-            this.conditionSplitter2.ResumeLayout(false);
-            this.UpDownSplitter.Panel1.ResumeLayout(false);
-            this.UpDownSplitter.Panel2.ResumeLayout(false);
-            this.UpDownSplitter.ResumeLayout(false);
-            this.dbMenu.ResumeLayout(false);
-            this.filterMenu.ResumeLayout(false);
-            this.ResumeLayout(false);
+			this.filterMenu.Name = "filterMenu";
+			this.filterMenu.Size = new System.Drawing.Size(227, 70);
+			// 
+			// filterClear
+			// 
+			this.filterClear.Name = "filterClear";
+			this.filterClear.Size = new System.Drawing.Size(226, 22);
+			this.filterClear.Text = "フィルター値をクリア";
+			this.filterClear.Click += new System.EventHandler(this.filterClear_Click);
+			// 
+			// filterCS
+			// 
+			this.filterCS.Name = "filterCS";
+			this.filterCS.Size = new System.Drawing.Size(226, 22);
+			this.filterCS.Text = "大文字・小文字を区別する";
+			this.filterCS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.filterCS.Click += new System.EventHandler(this.filterCS_Click);
+			// 
+			// filterNonCS
+			// 
+			this.filterNonCS.Name = "filterNonCS";
+			this.filterNonCS.Size = new System.Drawing.Size(226, 22);
+			this.filterNonCS.Text = "大文字・小文字を区別しない";
+			this.filterNonCS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.filterNonCS.Click += new System.EventHandler(this.filterNonCS_Click);
+			// 
+			// MainForm
+			// 
+			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			this.AutoScroll = true;
+			this.BackColor = System.Drawing.SystemColors.Control;
+			this.ClientSize = new System.Drawing.Size(1033, 677);
+			this.Controls.Add(this.MainSplitter);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.Name = "MainForm";
+			this.ShowInTaskbar = false;
+			this.Text = "Database選択";
+			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+			this.Closing += new System.ComponentModel.CancelEventHandler(this.MainForm_Closing);
+			this.Load += new System.EventHandler(this.MainForm_Load);
+			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
+			this.Controls.SetChildIndex(this.MsgArea, 0);
+			this.Controls.SetChildIndex(this.MainSplitter, 0);
+			this.grpViewMode.ResumeLayout(false);
+			this.grpSortMode.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.dbGrid)).EndInit();
+			this.grpDataDispMode.ResumeLayout(false);
+			this.grpDataDispMode.PerformLayout();
+			this.grpSysUserMode.ResumeLayout(false);
+			this.grpOutputMode.ResumeLayout(false);
+			this.grpOutputMode.PerformLayout();
+			this.grpCharaSet.ResumeLayout(false);
+			this.ObjFieldSplitter.Panel1.ResumeLayout(false);
+			this.ObjFieldSplitter.Panel1.PerformLayout();
+			this.ObjFieldSplitter.Panel2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.ObjFieldSplitter)).EndInit();
+			this.ObjFieldSplitter.ResumeLayout(false);
+			this.MainSplitter.Panel1.ResumeLayout(false);
+			this.MainSplitter.Panel2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.MainSplitter)).EndInit();
+			this.MainSplitter.ResumeLayout(false);
+			this.conditionSplitter.Panel1.ResumeLayout(false);
+			this.conditionSplitter.Panel1.PerformLayout();
+			this.conditionSplitter.Panel2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.conditionSplitter)).EndInit();
+			this.conditionSplitter.ResumeLayout(false);
+			this.conditionSplitter2.Panel1.ResumeLayout(false);
+			this.conditionSplitter2.Panel1.PerformLayout();
+			this.conditionSplitter2.Panel2.ResumeLayout(false);
+			this.conditionSplitter2.Panel2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.conditionSplitter2)).EndInit();
+			this.conditionSplitter2.ResumeLayout(false);
+			this.UpDownSplitter.Panel1.ResumeLayout(false);
+			this.UpDownSplitter.Panel2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.UpDownSplitter)).EndInit();
+			this.UpDownSplitter.ResumeLayout(false);
+			this.dbMenu.ResumeLayout(false);
+			this.filterMenu.ResumeLayout(false);
+			this.ResumeLayout(false);
 
 		}
 
@@ -2294,6 +2332,11 @@ namespace quickDBExplorer.Forms
 		/// <param name="e"></param>
 		private void dbList_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
+			if(dbList.IsFiltering == true)
+			{
+				return;
+			}
+
 			if( this.dbList.SelectedItems.Count != 0 )
 			{
 				svdata.LastDatabase = (string)this.dbList.SelectedItem;
@@ -2624,6 +2667,8 @@ namespace quickDBExplorer.Forms
 
 		private void ownerListbox_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
+			if (ownerListbox.IsFiltering) return;
+
 			if( this.ownerListbox.IsAllSelecting == true )
 			{
 				return;
@@ -7023,5 +7068,17 @@ namespace quickDBExplorer.Forms
 
             }
         }
-    }
+
+		private void txtFilterDB_KeyUp(object sender, KeyEventArgs e)
+		{
+			var thisTxt = (TextBox)sender;
+			dbList.SetFilter(thisTxt.Text);
+		}
+
+		private void txtFilterSchema_KeyUp(object sender, KeyEventArgs e)
+		{
+			var thisTxt = (TextBox)sender;
+			ownerListbox.SetFilter(thisTxt.Text);
+		}
+	}
 }

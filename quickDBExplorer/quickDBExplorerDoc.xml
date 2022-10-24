@@ -281,6 +281,12 @@
             </summary>
             <param name="itemlist"></param>
         </member>
+        <member name="M:quickDBExplorer.qdbeListBox.SetFilter(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="keywork"></param>
+        </member>
         <member name="T:quickDBExplorer.qdbeListView">
             <summary>
             qdbeListView の概要の説明です。

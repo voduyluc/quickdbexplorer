@@ -126,247 +126,247 @@ namespace quickDBExplorer
 		/// </summary>
 		private void InitializeComponent()
 		{
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogOnDialog));
-            this.chkTrust = new System.Windows.Forms.CheckBox();
-            this.labelSchema = new System.Windows.Forms.Label();
-            this.chkSaveInfo = new System.Windows.Forms.CheckBox();
-            this.btnServerHistory = new System.Windows.Forms.Button();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtPassword = new quickDBExplorer.quickDBExplorerTextBox();
-            this.txtUser = new quickDBExplorer.quickDBExplorerTextBox();
-            this.txtInstance = new quickDBExplorer.quickDBExplorerTextBox();
-            this.txtServerName = new quickDBExplorer.quickDBExplorerTextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnSelectServer = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.txtDatabaseName = new quickDBExplorer.quickDBExplorerTextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
-            // 
-            // MsgArea
-            // 
-            this.MsgArea.Location = new System.Drawing.Point(152, 276);
-            this.MsgArea.Size = new System.Drawing.Size(206, 25);
-            // 
-            // chkTrust
-            // 
-            this.chkTrust.Location = new System.Drawing.Point(27, 166);
-            this.chkTrust.Name = "chkTrust";
-            this.chkTrust.Size = new System.Drawing.Size(160, 16);
-            this.chkTrust.TabIndex = 9;
-            this.chkTrust.Text = "Windows認証を利用(&T)";
-            this.chkTrust.CheckedChanged += new System.EventHandler(this.chkTrust_CheckedChanged);
-            // 
-            // labelSchema
-            // 
-            this.labelSchema.Font = new System.Drawing.Font("MS UI Gothic", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelSchema.Location = new System.Drawing.Point(8, 287);
-            this.labelSchema.Name = "labelSchema";
-            this.labelSchema.Size = new System.Drawing.Size(48, 16);
-            this.labelSchema.TabIndex = 20;
-            this.labelSchema.Text = "C Info;";
-            // 
-            // chkSaveInfo
-            // 
-            this.chkSaveInfo.Location = new System.Drawing.Point(373, 88);
-            this.chkSaveInfo.Name = "chkSaveInfo";
-            this.chkSaveInfo.Size = new System.Drawing.Size(144, 16);
-            this.chkSaveInfo.TabIndex = 6;
-            this.chkSaveInfo.Text = "接続先を保存する(&V)";
-            // 
-            // btnServerHistory
-            // 
-            this.btnServerHistory.Location = new System.Drawing.Point(40, 1);
-            this.btnServerHistory.Name = "btnServerHistory";
-            this.btnServerHistory.Size = new System.Drawing.Size(304, 24);
-            this.btnServerHistory.TabIndex = 16;
-            this.btnServerHistory.Text = "過去に接続したサーバーから選択(&Z)";
-            this.btnServerHistory.Click += new System.EventHandler(this.btnServerHistory_Click);
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnLogin.Location = new System.Drawing.Point(40, 263);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(88, 24);
-            this.btnLogin.TabIndex = 14;
-            this.btnLogin.Text = "接続(&O)";
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
-            // label4
-            // 
-            this.label4.Location = new System.Drawing.Point(25, 239);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 23);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "パスワード(&P)";
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.CanCtrlDelete = true;
-            this.txtPassword.Histories = null;
-            this.txtPassword.HistoryKey = "txtPassword";
-            this.txtPassword.IsDigitOnly = false;
-            this.txtPassword.IsShowZoom = false;
-            this.txtPassword.Location = new System.Drawing.Point(153, 239);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(208, 19);
-            this.txtPassword.TabIndex = 13;
-            // 
-            // txtUser
-            // 
-            this.txtUser.CanCtrlDelete = true;
-            this.txtUser.Histories = null;
-            this.txtUser.HistoryKey = "txtUser";
-            this.txtUser.IsDigitOnly = false;
-            this.txtUser.IsShowZoom = false;
-            this.txtUser.Location = new System.Drawing.Point(153, 199);
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(208, 19);
-            this.txtUser.TabIndex = 11;
-            this.txtUser.Text = "sa";
-            // 
-            // txtInstance
-            // 
-            this.txtInstance.CanCtrlDelete = true;
-            this.txtInstance.Histories = null;
-            this.txtInstance.HistoryKey = "txtInstance";
-            this.txtInstance.IsDigitOnly = false;
-            this.txtInstance.IsShowZoom = false;
-            this.txtInstance.Location = new System.Drawing.Point(153, 89);
-            this.txtInstance.Name = "txtInstance";
-            this.txtInstance.Size = new System.Drawing.Size(208, 19);
-            this.txtInstance.TabIndex = 5;
-            // 
-            // txtServerName
-            // 
-            this.txtServerName.CanCtrlDelete = true;
-            this.txtServerName.Histories = null;
-            this.txtServerName.HistoryKey = "txtServerName";
-            this.txtServerName.IsDigitOnly = false;
-            this.txtServerName.IsShowZoom = false;
-            this.txtServerName.Location = new System.Drawing.Point(153, 49);
-            this.txtServerName.Name = "txtServerName";
-            this.txtServerName.Size = new System.Drawing.Size(208, 19);
-            this.txtServerName.TabIndex = 2;
-            this.txtServerName.Text = "(local)";
-            // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(25, 199);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 23);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "ユーザーID(&U)";
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(25, 89);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 23);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "インスタンス(&I)";
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(25, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 23);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "サーバーの指定(&S)";
-            // 
-            // btnSelectServer
-            // 
-            this.btnSelectServer.Location = new System.Drawing.Point(373, 47);
-            this.btnSelectServer.Name = "btnSelectServer";
-            this.btnSelectServer.Size = new System.Drawing.Size(101, 23);
-            this.btnSelectServer.TabIndex = 3;
-            this.btnSelectServer.Text = "接続先検索(&L)";
-            this.btnSelectServer.UseVisualStyleBackColor = true;
-            this.btnSelectServer.Click += new System.EventHandler(this.btnSelectServer_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(373, 264);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(101, 23);
-            this.btnClear.TabIndex = 15;
-            this.btnClear.Text = "CLear(&C)";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // txtDatabaseName
-            // 
-            this.txtDatabaseName.CanCtrlDelete = true;
-            this.txtDatabaseName.Histories = null;
-            this.txtDatabaseName.HistoryKey = "txtInstance";
-            this.txtDatabaseName.IsDigitOnly = false;
-            this.txtDatabaseName.IsShowZoom = false;
-            this.txtDatabaseName.Location = new System.Drawing.Point(153, 128);
-            this.txtDatabaseName.Name = "txtDatabaseName";
-            this.txtDatabaseName.Size = new System.Drawing.Size(208, 19);
-            this.txtDatabaseName.TabIndex = 8;
-            // 
-            // label6
-            // 
-            this.label6.Location = new System.Drawing.Point(25, 131);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(122, 23);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "接続先データベース名(&D)";
-            // 
-            // LogOnDialog
-            // 
-            this.AcceptButton = this.btnLogin;
-            this.AutoScaleBaseSize = new System.Drawing.Size(5, 12);
-            this.ClientSize = new System.Drawing.Size(520, 302);
-            this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.btnSelectServer);
-            this.Controls.Add(this.chkTrust);
-            this.Controls.Add(this.labelSchema);
-            this.Controls.Add(this.chkSaveInfo);
-            this.Controls.Add(this.btnServerHistory);
-            this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtUser);
-            this.Controls.Add(this.txtDatabaseName);
-            this.Controls.Add(this.txtInstance);
-            this.Controls.Add(this.txtServerName);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "LogOnDialog";
-            this.Text = "ログイン";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Closing += new System.ComponentModel.CancelEventHandler(this.LogOnDialog_Closing);
-            this.Load += new System.EventHandler(this.LogOnDialog_Load);
-            this.Controls.SetChildIndex(this.MsgArea, 0);
-            this.Controls.SetChildIndex(this.label1, 0);
-            this.Controls.SetChildIndex(this.label2, 0);
-            this.Controls.SetChildIndex(this.label6, 0);
-            this.Controls.SetChildIndex(this.label3, 0);
-            this.Controls.SetChildIndex(this.txtServerName, 0);
-            this.Controls.SetChildIndex(this.txtInstance, 0);
-            this.Controls.SetChildIndex(this.txtDatabaseName, 0);
-            this.Controls.SetChildIndex(this.txtUser, 0);
-            this.Controls.SetChildIndex(this.txtPassword, 0);
-            this.Controls.SetChildIndex(this.label4, 0);
-            this.Controls.SetChildIndex(this.btnLogin, 0);
-            this.Controls.SetChildIndex(this.btnServerHistory, 0);
-            this.Controls.SetChildIndex(this.chkSaveInfo, 0);
-            this.Controls.SetChildIndex(this.labelSchema, 0);
-            this.Controls.SetChildIndex(this.chkTrust, 0);
-            this.Controls.SetChildIndex(this.btnSelectServer, 0);
-            this.Controls.SetChildIndex(this.btnClear, 0);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogOnDialog));
+			this.chkTrust = new System.Windows.Forms.CheckBox();
+			this.labelSchema = new System.Windows.Forms.Label();
+			this.chkSaveInfo = new System.Windows.Forms.CheckBox();
+			this.btnServerHistory = new System.Windows.Forms.Button();
+			this.btnLogin = new System.Windows.Forms.Button();
+			this.label4 = new System.Windows.Forms.Label();
+			this.txtPassword = new quickDBExplorer.quickDBExplorerTextBox();
+			this.txtUser = new quickDBExplorer.quickDBExplorerTextBox();
+			this.txtInstance = new quickDBExplorer.quickDBExplorerTextBox();
+			this.txtServerName = new quickDBExplorer.quickDBExplorerTextBox();
+			this.label3 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.label1 = new System.Windows.Forms.Label();
+			this.btnSelectServer = new System.Windows.Forms.Button();
+			this.btnClear = new System.Windows.Forms.Button();
+			this.txtDatabaseName = new quickDBExplorer.quickDBExplorerTextBox();
+			this.label6 = new System.Windows.Forms.Label();
+			this.SuspendLayout();
+			// 
+			// MsgArea
+			// 
+			this.MsgArea.Location = new System.Drawing.Point(152, 274);
+			this.MsgArea.Size = new System.Drawing.Size(206, 27);
+			// 
+			// chkTrust
+			// 
+			this.chkTrust.Location = new System.Drawing.Point(27, 180);
+			this.chkTrust.Name = "chkTrust";
+			this.chkTrust.Size = new System.Drawing.Size(160, 17);
+			this.chkTrust.TabIndex = 9;
+			this.chkTrust.Text = "Windows認証を利用(&T)";
+			this.chkTrust.CheckedChanged += new System.EventHandler(this.chkTrust_CheckedChanged);
+			// 
+			// labelSchema
+			// 
+			this.labelSchema.Font = new System.Drawing.Font("MS UI Gothic", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.labelSchema.Location = new System.Drawing.Point(8, 311);
+			this.labelSchema.Name = "labelSchema";
+			this.labelSchema.Size = new System.Drawing.Size(48, 17);
+			this.labelSchema.TabIndex = 20;
+			this.labelSchema.Text = "C Info;";
+			// 
+			// chkSaveInfo
+			// 
+			this.chkSaveInfo.Location = new System.Drawing.Point(373, 95);
+			this.chkSaveInfo.Name = "chkSaveInfo";
+			this.chkSaveInfo.Size = new System.Drawing.Size(144, 18);
+			this.chkSaveInfo.TabIndex = 6;
+			this.chkSaveInfo.Text = "接続先を保存する(&V)";
+			// 
+			// btnServerHistory
+			// 
+			this.btnServerHistory.Location = new System.Drawing.Point(40, 1);
+			this.btnServerHistory.Name = "btnServerHistory";
+			this.btnServerHistory.Size = new System.Drawing.Size(304, 26);
+			this.btnServerHistory.TabIndex = 16;
+			this.btnServerHistory.Text = "過去に接続したサーバーから選択(&Z)";
+			this.btnServerHistory.Click += new System.EventHandler(this.btnServerHistory_Click);
+			// 
+			// btnLogin
+			// 
+			this.btnLogin.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.btnLogin.Location = new System.Drawing.Point(40, 285);
+			this.btnLogin.Name = "btnLogin";
+			this.btnLogin.Size = new System.Drawing.Size(88, 26);
+			this.btnLogin.TabIndex = 14;
+			this.btnLogin.Text = "接続(&O)";
+			this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+			// 
+			// label4
+			// 
+			this.label4.Location = new System.Drawing.Point(25, 259);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(88, 25);
+			this.label4.TabIndex = 12;
+			this.label4.Text = "パスワード(&P)";
+			// 
+			// txtPassword
+			// 
+			this.txtPassword.CanCtrlDelete = true;
+			this.txtPassword.Histories = null;
+			this.txtPassword.HistoryKey = "txtPassword";
+			this.txtPassword.IsDigitOnly = false;
+			this.txtPassword.IsShowZoom = false;
+			this.txtPassword.Location = new System.Drawing.Point(153, 259);
+			this.txtPassword.Name = "txtPassword";
+			this.txtPassword.PasswordChar = '*';
+			this.txtPassword.Size = new System.Drawing.Size(208, 20);
+			this.txtPassword.TabIndex = 13;
+			// 
+			// txtUser
+			// 
+			this.txtUser.CanCtrlDelete = true;
+			this.txtUser.Histories = null;
+			this.txtUser.HistoryKey = "txtUser";
+			this.txtUser.IsDigitOnly = false;
+			this.txtUser.IsShowZoom = false;
+			this.txtUser.Location = new System.Drawing.Point(153, 216);
+			this.txtUser.Name = "txtUser";
+			this.txtUser.Size = new System.Drawing.Size(208, 20);
+			this.txtUser.TabIndex = 11;
+			this.txtUser.Text = "sa";
+			// 
+			// txtInstance
+			// 
+			this.txtInstance.CanCtrlDelete = true;
+			this.txtInstance.Histories = null;
+			this.txtInstance.HistoryKey = "txtInstance";
+			this.txtInstance.IsDigitOnly = false;
+			this.txtInstance.IsShowZoom = false;
+			this.txtInstance.Location = new System.Drawing.Point(153, 96);
+			this.txtInstance.Name = "txtInstance";
+			this.txtInstance.Size = new System.Drawing.Size(208, 20);
+			this.txtInstance.TabIndex = 5;
+			// 
+			// txtServerName
+			// 
+			this.txtServerName.CanCtrlDelete = true;
+			this.txtServerName.Histories = null;
+			this.txtServerName.HistoryKey = "txtServerName";
+			this.txtServerName.IsDigitOnly = false;
+			this.txtServerName.IsShowZoom = false;
+			this.txtServerName.Location = new System.Drawing.Point(153, 53);
+			this.txtServerName.Name = "txtServerName";
+			this.txtServerName.Size = new System.Drawing.Size(208, 20);
+			this.txtServerName.TabIndex = 2;
+			this.txtServerName.Text = "(local)";
+			// 
+			// label3
+			// 
+			this.label3.Location = new System.Drawing.Point(25, 216);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(88, 25);
+			this.label3.TabIndex = 10;
+			this.label3.Text = "ユーザーID(&U)";
+			// 
+			// label2
+			// 
+			this.label2.Location = new System.Drawing.Point(25, 96);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(96, 25);
+			this.label2.TabIndex = 4;
+			this.label2.Text = "インスタンス(&I)";
+			// 
+			// label1
+			// 
+			this.label1.Location = new System.Drawing.Point(25, 53);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(96, 25);
+			this.label1.TabIndex = 1;
+			this.label1.Text = "サーバーの指定(&S)";
+			// 
+			// btnSelectServer
+			// 
+			this.btnSelectServer.Location = new System.Drawing.Point(373, 51);
+			this.btnSelectServer.Name = "btnSelectServer";
+			this.btnSelectServer.Size = new System.Drawing.Size(101, 25);
+			this.btnSelectServer.TabIndex = 3;
+			this.btnSelectServer.Text = "接続先検索(&L)";
+			this.btnSelectServer.UseVisualStyleBackColor = true;
+			this.btnSelectServer.Click += new System.EventHandler(this.btnSelectServer_Click);
+			// 
+			// btnClear
+			// 
+			this.btnClear.Location = new System.Drawing.Point(373, 286);
+			this.btnClear.Name = "btnClear";
+			this.btnClear.Size = new System.Drawing.Size(101, 25);
+			this.btnClear.TabIndex = 15;
+			this.btnClear.Text = "CLear(&C)";
+			this.btnClear.UseVisualStyleBackColor = true;
+			this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+			// 
+			// txtDatabaseName
+			// 
+			this.txtDatabaseName.CanCtrlDelete = true;
+			this.txtDatabaseName.Histories = null;
+			this.txtDatabaseName.HistoryKey = "txtInstance";
+			this.txtDatabaseName.IsDigitOnly = false;
+			this.txtDatabaseName.IsShowZoom = false;
+			this.txtDatabaseName.Location = new System.Drawing.Point(153, 139);
+			this.txtDatabaseName.Name = "txtDatabaseName";
+			this.txtDatabaseName.Size = new System.Drawing.Size(208, 20);
+			this.txtDatabaseName.TabIndex = 8;
+			// 
+			// label6
+			// 
+			this.label6.Location = new System.Drawing.Point(25, 142);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(122, 25);
+			this.label6.TabIndex = 7;
+			this.label6.Text = "接続先データベース名(&D)";
+			// 
+			// LogOnDialog
+			// 
+			this.AcceptButton = this.btnLogin;
+			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			this.ClientSize = new System.Drawing.Size(520, 302);
+			this.Controls.Add(this.btnClear);
+			this.Controls.Add(this.btnSelectServer);
+			this.Controls.Add(this.chkTrust);
+			this.Controls.Add(this.labelSchema);
+			this.Controls.Add(this.chkSaveInfo);
+			this.Controls.Add(this.btnServerHistory);
+			this.Controls.Add(this.btnLogin);
+			this.Controls.Add(this.label4);
+			this.Controls.Add(this.txtPassword);
+			this.Controls.Add(this.txtUser);
+			this.Controls.Add(this.txtDatabaseName);
+			this.Controls.Add(this.txtInstance);
+			this.Controls.Add(this.txtServerName);
+			this.Controls.Add(this.label3);
+			this.Controls.Add(this.label6);
+			this.Controls.Add(this.label2);
+			this.Controls.Add(this.label1);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.Name = "LogOnDialog";
+			this.Text = "ログイン";
+			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+			this.Closing += new System.ComponentModel.CancelEventHandler(this.LogOnDialog_Closing);
+			this.Load += new System.EventHandler(this.LogOnDialog_Load);
+			this.Controls.SetChildIndex(this.MsgArea, 0);
+			this.Controls.SetChildIndex(this.label1, 0);
+			this.Controls.SetChildIndex(this.label2, 0);
+			this.Controls.SetChildIndex(this.label6, 0);
+			this.Controls.SetChildIndex(this.label3, 0);
+			this.Controls.SetChildIndex(this.txtServerName, 0);
+			this.Controls.SetChildIndex(this.txtInstance, 0);
+			this.Controls.SetChildIndex(this.txtDatabaseName, 0);
+			this.Controls.SetChildIndex(this.txtUser, 0);
+			this.Controls.SetChildIndex(this.txtPassword, 0);
+			this.Controls.SetChildIndex(this.label4, 0);
+			this.Controls.SetChildIndex(this.btnLogin, 0);
+			this.Controls.SetChildIndex(this.btnServerHistory, 0);
+			this.Controls.SetChildIndex(this.chkSaveInfo, 0);
+			this.Controls.SetChildIndex(this.labelSchema, 0);
+			this.Controls.SetChildIndex(this.chkTrust, 0);
+			this.Controls.SetChildIndex(this.btnSelectServer, 0);
+			this.Controls.SetChildIndex(this.btnClear, 0);
+			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 		#endregion

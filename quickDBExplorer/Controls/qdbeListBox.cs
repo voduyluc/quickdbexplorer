@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace quickDBExplorer
@@ -34,7 +35,6 @@ namespace quickDBExplorer
 		/// </summary>
 		public event CopyDataEventHandler CopyData = null;
 
-
 		/// <summary>
 		/// Ctrl+F 押下時のイベント
 		/// </summary>
@@ -42,6 +42,11 @@ namespace quickDBExplorer
 
 
 		private bool isAllSelecting = false;
+		public bool IsFiltering = false;
+
+		private List<string> allDataList;
+		private string oldFitered;
+		private string oldSelectedItem;
 
 		/// <summary>
 		/// 全ての項目が選択されているか否か
@@ -137,5 +142,59 @@ namespace quickDBExplorer
                 }
             }
         }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="keywork"></param>
+		public void SetFilter(string keyword)
+		{
+			IsFiltering = true;
+			try
+			{
+
+				if (allDataList == null)
+				{
+					allDataList = new List<string>();
+					foreach (string item in Items)
+					{
+						allDataList.Add(item);
+					}
+				}
+
+				keyword = keyword.ToLower();
+				if (oldFitered == keyword)
+				{
+					return;
+				}
+				oldFitered = keyword;
+				string selectedKey = oldSelectedItem;
+				if (SelectedItem != null)
+				{
+					selectedKey = SelectedItem.ToString();
+				}
+				oldSelectedItem = selectedKey;
+
+				Items.Clear();
+				foreach (string item in allDataList)
+				{
+					if (string.IsNullOrEmpty(keyword) == false &&
+						item.ToLower().Contains(keyword) == false)
+					{
+						continue;
+					}
+
+					Items.Add(item);
+					if (item == selectedKey)
+					{
+						SetSelectedItems(new string[] { selectedKey });
+					}
+				}
+			}
+			finally
+			{
+				IsFiltering = false;
+			}
+		}
 	}
 }

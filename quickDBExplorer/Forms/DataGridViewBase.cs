@@ -71,7 +71,7 @@ namespace quickDBExplorer
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Resources.ResourceManager resources = new System.Resources.ResourceManager(typeof(DataGridViewBase));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataGridViewBase));
 			this.dataViewGrid = new System.Windows.Forms.DataGrid();
 			this.btnClipboard = new System.Windows.Forms.Button();
 			this.btnClose = new System.Windows.Forms.Button();
@@ -80,31 +80,28 @@ namespace quickDBExplorer
 			// 
 			// MsgArea
 			// 
-			this.MsgArea.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-				| System.Windows.Forms.AnchorStyles.Right)));
-			this.MsgArea.Location = new System.Drawing.Point(152, 220);
-			this.MsgArea.Name = "MsgArea";
-			this.MsgArea.Size = new System.Drawing.Size(254, 24);
+			this.MsgArea.Location = new System.Drawing.Point(152, 217);
+			this.MsgArea.Size = new System.Drawing.Size(254, 26);
 			// 
 			// dataViewGrid
 			// 
 			this.dataViewGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-				| System.Windows.Forms.AnchorStyles.Left) 
-				| System.Windows.Forms.AnchorStyles.Right)));
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.dataViewGrid.DataMember = "";
 			this.dataViewGrid.HeaderForeColor = System.Drawing.SystemColors.ControlText;
-			this.dataViewGrid.Location = new System.Drawing.Point(12, 14);
+			this.dataViewGrid.Location = new System.Drawing.Point(12, 15);
 			this.dataViewGrid.Name = "dataViewGrid";
 			this.dataViewGrid.ReadOnly = true;
-			this.dataViewGrid.Size = new System.Drawing.Size(490, 194);
+			this.dataViewGrid.Size = new System.Drawing.Size(490, 189);
 			this.dataViewGrid.TabIndex = 0;
 			// 
 			// btnClipboard
 			// 
 			this.btnClipboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.btnClipboard.Location = new System.Drawing.Point(12, 218);
+			this.btnClipboard.Location = new System.Drawing.Point(12, 215);
 			this.btnClipboard.Name = "btnClipboard";
-			this.btnClipboard.Size = new System.Drawing.Size(136, 26);
+			this.btnClipboard.Size = new System.Drawing.Size(136, 28);
 			this.btnClipboard.TabIndex = 1;
 			this.btnClipboard.Text = "クリップボードにコピー(&B)";
 			this.btnClipboard.Click += new System.EventHandler(this.btnClipboard_Click);
@@ -112,16 +109,16 @@ namespace quickDBExplorer
 			// btnClose
 			// 
 			this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnClose.Location = new System.Drawing.Point(420, 220);
+			this.btnClose.Location = new System.Drawing.Point(420, 217);
 			this.btnClose.Name = "btnClose";
-			this.btnClose.Size = new System.Drawing.Size(76, 26);
+			this.btnClose.Size = new System.Drawing.Size(76, 29);
 			this.btnClose.TabIndex = 11;
 			this.btnClose.Text = "閉じる(&X)";
 			this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
 			// 
 			// DataGridViewBase
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 12);
+			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
 			this.ClientSize = new System.Drawing.Size(516, 252);
 			this.Controls.Add(this.btnClose);
 			this.Controls.Add(this.btnClipboard);

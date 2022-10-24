@@ -118,183 +118,183 @@ namespace quickDBExplorer.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMdi));
-            this.statusBar1 = new System.Windows.Forms.StatusBar();
-            this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
-            this.menuConnect = new System.Windows.Forms.MenuItem();
-            this.menuNewConnect = new System.Windows.Forms.MenuItem();
-            this.menuReConnect = new System.Windows.Forms.MenuItem();
-            this.menuQuit = new System.Windows.Forms.MenuItem();
-            this.menuWindow = new System.Windows.Forms.MenuItem();
-            this.menuBookamrk = new System.Windows.Forms.MenuItem();
-            this.menuAddBookMark = new System.Windows.Forms.MenuItem();
-            this.menuEditBookmark = new System.Windows.Forms.MenuItem();
-            this.menuBookMarkSeparator = new System.Windows.Forms.MenuItem();
-            this.menuTools = new System.Windows.Forms.MenuItem();
-            this.menuToolEdit = new System.Windows.Forms.MenuItem();
-            this.menuToolSeparator = new System.Windows.Forms.MenuItem();
-            this.menuHelpMain = new System.Windows.Forms.MenuItem();
-            this.menuViewHelp = new System.Windows.Forms.MenuItem();
-            this.menuAbout = new System.Windows.Forms.MenuItem();
-            this.menuVersion = new System.Windows.Forms.MenuItem();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.menuItem1 = new System.Windows.Forms.MenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // statusBar1
-            // 
-            this.statusBar1.Location = new System.Drawing.Point(0, 635);
-            this.statusBar1.Name = "statusBar1";
-            this.statusBar1.Size = new System.Drawing.Size(1033, 22);
-            this.statusBar1.TabIndex = 1;
-            this.statusBar1.DoubleClick += new System.EventHandler(this.statusBar1_DoubleClick);
-            // 
-            // mainMenu1
-            // 
-            this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMdi));
+			this.statusBar1 = new System.Windows.Forms.StatusBar();
+			this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
+			this.menuConnect = new System.Windows.Forms.MenuItem();
+			this.menuNewConnect = new System.Windows.Forms.MenuItem();
+			this.menuReConnect = new System.Windows.Forms.MenuItem();
+			this.menuItem1 = new System.Windows.Forms.MenuItem();
+			this.menuQuit = new System.Windows.Forms.MenuItem();
+			this.menuWindow = new System.Windows.Forms.MenuItem();
+			this.menuBookamrk = new System.Windows.Forms.MenuItem();
+			this.menuAddBookMark = new System.Windows.Forms.MenuItem();
+			this.menuEditBookmark = new System.Windows.Forms.MenuItem();
+			this.menuBookMarkSeparator = new System.Windows.Forms.MenuItem();
+			this.menuTools = new System.Windows.Forms.MenuItem();
+			this.menuToolEdit = new System.Windows.Forms.MenuItem();
+			this.menuToolSeparator = new System.Windows.Forms.MenuItem();
+			this.menuHelpMain = new System.Windows.Forms.MenuItem();
+			this.menuViewHelp = new System.Windows.Forms.MenuItem();
+			this.menuAbout = new System.Windows.Forms.MenuItem();
+			this.menuVersion = new System.Windows.Forms.MenuItem();
+			this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+			this.SuspendLayout();
+			// 
+			// statusBar1
+			// 
+			this.statusBar1.Location = new System.Drawing.Point(0, 633);
+			this.statusBar1.Name = "statusBar1";
+			this.statusBar1.Size = new System.Drawing.Size(1033, 24);
+			this.statusBar1.TabIndex = 1;
+			this.statusBar1.DoubleClick += new System.EventHandler(this.statusBar1_DoubleClick);
+			// 
+			// mainMenu1
+			// 
+			this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuConnect,
             this.menuWindow,
             this.menuBookamrk,
             this.menuTools,
             this.menuHelpMain});
-            // 
-            // menuConnect
-            // 
-            this.menuConnect.Index = 0;
-            this.menuConnect.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+			// 
+			// menuConnect
+			// 
+			this.menuConnect.Index = 0;
+			this.menuConnect.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuNewConnect,
             this.menuReConnect,
             this.menuItem1,
             this.menuQuit});
-            this.menuConnect.Text = "接続(&C)";
-            // 
-            // menuNewConnect
-            // 
-            this.menuNewConnect.Index = 0;
-            this.menuNewConnect.Shortcut = System.Windows.Forms.Shortcut.CtrlN;
-            this.menuNewConnect.Text = "新規接続(&N)";
-            this.menuNewConnect.Click += new System.EventHandler(this.menuNewConnect_Click);
-            // 
-            // menuReConnect
-            // 
-            this.menuReConnect.Index = 1;
-            this.menuReConnect.Text = "再接続";
-            this.menuReConnect.Click += new System.EventHandler(this.menuReConnect_Click);
-            // 
-            // menuQuit
-            // 
-            this.menuQuit.Index = 3;
-            this.menuQuit.Text = "終了(&Q)";
-            this.menuQuit.Click += new System.EventHandler(this.menuQuit_Click);
-            // 
-            // menuWindow
-            // 
-            this.menuWindow.Index = 1;
-            this.menuWindow.MdiList = true;
-            this.menuWindow.Text = "ウィンドウ(&W)";
-            // 
-            // menuBookamrk
-            // 
-            this.menuBookamrk.Index = 2;
-            this.menuBookamrk.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+			this.menuConnect.Text = "接続(&C)";
+			// 
+			// menuNewConnect
+			// 
+			this.menuNewConnect.Index = 0;
+			this.menuNewConnect.Shortcut = System.Windows.Forms.Shortcut.CtrlN;
+			this.menuNewConnect.Text = "新規接続(&N)";
+			this.menuNewConnect.Click += new System.EventHandler(this.menuNewConnect_Click);
+			// 
+			// menuReConnect
+			// 
+			this.menuReConnect.Index = 1;
+			this.menuReConnect.Text = "再接続";
+			this.menuReConnect.Click += new System.EventHandler(this.menuReConnect_Click);
+			// 
+			// menuItem1
+			// 
+			this.menuItem1.Index = 2;
+			this.menuItem1.Text = "設定を保存(&S)";
+			this.menuItem1.Click += new System.EventHandler(this.menuItem1_Click);
+			// 
+			// menuQuit
+			// 
+			this.menuQuit.Index = 3;
+			this.menuQuit.Text = "終了(&Q)";
+			this.menuQuit.Click += new System.EventHandler(this.menuQuit_Click);
+			// 
+			// menuWindow
+			// 
+			this.menuWindow.Index = 1;
+			this.menuWindow.MdiList = true;
+			this.menuWindow.Text = "ウィンドウ(&W)";
+			// 
+			// menuBookamrk
+			// 
+			this.menuBookamrk.Index = 2;
+			this.menuBookamrk.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuAddBookMark,
             this.menuEditBookmark,
             this.menuBookMarkSeparator});
-            this.menuBookamrk.Text = "Bookmark(&Q)";
-            this.menuBookamrk.Popup += new System.EventHandler(this.menuBookamrk_Popup);
-            // 
-            // menuAddBookMark
-            // 
-            this.menuAddBookMark.Index = 0;
-            this.menuAddBookMark.Shortcut = System.Windows.Forms.Shortcut.CtrlM;
-            this.menuAddBookMark.Text = "追加(&M)";
-            this.menuAddBookMark.Click += new System.EventHandler(this.menuAddBookMark_Click);
-            // 
-            // menuEditBookmark
-            // 
-            this.menuEditBookmark.Index = 1;
-            this.menuEditBookmark.Shortcut = System.Windows.Forms.Shortcut.CtrlB;
-            this.menuEditBookmark.Text = "管理(&B)";
-            this.menuEditBookmark.Click += new System.EventHandler(this.menuEditBookmark_Click);
-            // 
-            // menuBookMarkSeparator
-            // 
-            this.menuBookMarkSeparator.Index = 2;
-            this.menuBookMarkSeparator.Text = "-";
-            // 
-            // menuTools
-            // 
-            this.menuTools.Index = 3;
-            this.menuTools.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+			this.menuBookamrk.Text = "Bookmark(&Q)";
+			this.menuBookamrk.Popup += new System.EventHandler(this.menuBookamrk_Popup);
+			// 
+			// menuAddBookMark
+			// 
+			this.menuAddBookMark.Index = 0;
+			this.menuAddBookMark.Shortcut = System.Windows.Forms.Shortcut.CtrlM;
+			this.menuAddBookMark.Text = "追加(&M)";
+			this.menuAddBookMark.Click += new System.EventHandler(this.menuAddBookMark_Click);
+			// 
+			// menuEditBookmark
+			// 
+			this.menuEditBookmark.Index = 1;
+			this.menuEditBookmark.Shortcut = System.Windows.Forms.Shortcut.CtrlB;
+			this.menuEditBookmark.Text = "管理(&B)";
+			this.menuEditBookmark.Click += new System.EventHandler(this.menuEditBookmark_Click);
+			// 
+			// menuBookMarkSeparator
+			// 
+			this.menuBookMarkSeparator.Index = 2;
+			this.menuBookMarkSeparator.Text = "-";
+			// 
+			// menuTools
+			// 
+			this.menuTools.Index = 3;
+			this.menuTools.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuToolEdit,
             this.menuToolSeparator});
-            this.menuTools.Text = "外部ツール(&R)";
-            this.menuTools.Popup += new System.EventHandler(this.menuTools_Popup);
-            // 
-            // menuToolEdit
-            // 
-            this.menuToolEdit.Index = 0;
-            this.menuToolEdit.Text = "管理";
-            this.menuToolEdit.Click += new System.EventHandler(this.menuToolEdit_Click);
-            // 
-            // menuToolSeparator
-            // 
-            this.menuToolSeparator.Index = 1;
-            this.menuToolSeparator.Text = "-";
-            // 
-            // menuHelpMain
-            // 
-            this.menuHelpMain.Index = 4;
-            this.menuHelpMain.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+			this.menuTools.Text = "外部ツール(&R)";
+			this.menuTools.Popup += new System.EventHandler(this.menuTools_Popup);
+			// 
+			// menuToolEdit
+			// 
+			this.menuToolEdit.Index = 0;
+			this.menuToolEdit.Text = "管理";
+			this.menuToolEdit.Click += new System.EventHandler(this.menuToolEdit_Click);
+			// 
+			// menuToolSeparator
+			// 
+			this.menuToolSeparator.Index = 1;
+			this.menuToolSeparator.Text = "-";
+			// 
+			// menuHelpMain
+			// 
+			this.menuHelpMain.Index = 4;
+			this.menuHelpMain.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuViewHelp,
             this.menuAbout,
             this.menuVersion});
-            this.menuHelpMain.Text = "HELP(&H)";
-            // 
-            // menuViewHelp
-            // 
-            this.menuViewHelp.Index = 0;
-            this.menuViewHelp.Text = "ヘルプ参照";
-            this.menuViewHelp.Click += new System.EventHandler(this.menuViewHelp_Click);
-            // 
-            // menuAbout
-            // 
-            this.menuAbout.Index = 1;
-            this.menuAbout.Text = "About";
-            this.menuAbout.Click += new System.EventHandler(this.menuAbout_Click);
-            // 
-            // menuVersion
-            // 
-            this.menuVersion.Index = 2;
-            this.menuVersion.Text = "最新バージョンのチェック";
-            this.menuVersion.Click += new System.EventHandler(this.menuVersion_Click);
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // menuItem1
-            // 
-            this.menuItem1.Index = 2;
-            this.menuItem1.Text = "設定を保存(&S)";
-            this.menuItem1.Click += new System.EventHandler(this.menuItem1_Click);
-            // 
-            // MainMdi
-            // 
-            this.AutoScaleBaseSize = new System.Drawing.Size(5, 12);
-            this.ClientSize = new System.Drawing.Size(1033, 657);
-            this.Controls.Add(this.statusBar1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.IsMdiContainer = true;
-            this.Menu = this.mainMenu1;
-            this.Name = "MainMdi";
-            this.Text = "quickDBExplorer";
-            this.Closing += new System.ComponentModel.CancelEventHandler(this.MainMdi_Closing);
-            this.Load += new System.EventHandler(this.MainMdi_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.ResumeLayout(false);
+			this.menuHelpMain.Text = "HELP(&H)";
+			// 
+			// menuViewHelp
+			// 
+			this.menuViewHelp.Index = 0;
+			this.menuViewHelp.Text = "ヘルプ参照";
+			this.menuViewHelp.Click += new System.EventHandler(this.menuViewHelp_Click);
+			// 
+			// menuAbout
+			// 
+			this.menuAbout.Index = 1;
+			this.menuAbout.Text = "About";
+			this.menuAbout.Click += new System.EventHandler(this.menuAbout_Click);
+			// 
+			// menuVersion
+			// 
+			this.menuVersion.Index = 2;
+			this.menuVersion.Text = "最新バージョンのチェック";
+			this.menuVersion.Click += new System.EventHandler(this.menuVersion_Click);
+			// 
+			// errorProvider1
+			// 
+			this.errorProvider1.ContainerControl = this;
+			// 
+			// MainMdi
+			// 
+			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			this.ClientSize = new System.Drawing.Size(1033, 657);
+			this.Controls.Add(this.statusBar1);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.IsMdiContainer = true;
+			this.Menu = this.mainMenu1;
+			this.Name = "MainMdi";
+			this.Text = "quickDBExplorer";
+			this.Closing += new System.ComponentModel.CancelEventHandler(this.MainMdi_Closing);
+			this.Load += new System.EventHandler(this.MainMdi_Load);
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+			this.ResumeLayout(false);
 
         }
         #endregion
